@@ -1,2 +1,7 @@
-build
+.idea
+.settings
+.project
+.classpath
+bin
+build*
 dist
