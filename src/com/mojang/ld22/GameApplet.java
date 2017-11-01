@@ -2,6 +2,9 @@ package com.mojang.ld22;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 
 public class GameApplet extends Applet {
 	private static final long serialVersionUID = 1L;
@@ -14,7 +17,20 @@ public class GameApplet extends Applet {
 	}
 
 	public void start() {
-		game.start();
+		try {
+			game.start();
+			InputHandler obj = new InputHandler(game);
+			InputHandlerInterface stub = (InputHandlerInterface) UnicastRemoteObject.exportObject(obj, 1234);
+
+			// Bind the remote object's stub in the registry
+			Registry registry = LocateRegistry.getRegistry();
+			registry.bind("InputHandler", stub);
+			System.err.println("Server ready");
+
+		} catch (Exception e) {
+			System.err.println("Server exception: " + e.toString());
+			e.printStackTrace();
+		}
 	}
 
 	public void stop() {
