@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InputHandler implements KeyListener {
+public class InputHandler implements KeyListener, InputHandlerInterface {
 	public class Key {
 		public int presses, absorbs;
 		public boolean down, clicked;
