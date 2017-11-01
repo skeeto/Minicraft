@@ -14,8 +14,7 @@ public class GameApplet extends Applet {
 	}
 
 	public void start() {
-		try {
-			game.start();
+        game.start();
 	}
 
 	public void stop() {
