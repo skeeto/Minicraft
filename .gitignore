@@ -1,2 +1,6 @@
-build
-dist
+client/build
+server/build
+client/dist
+server/dist
+client/.idea
+server/.idea
