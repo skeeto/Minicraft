@@ -13,7 +13,8 @@ public class Game extends ac.novel.common.Game {
 
     public void start(InputHandlerInterface inputHandlerServerInterface) {
         running = true;
-        input = new InputHandlerClient(this, inputHandlerServerInterface);
+        input = new InputHandlerClient(inputHandlerServerInterface);
+        this.addKeyListener(input);
         new Thread(this).start();
     }
 

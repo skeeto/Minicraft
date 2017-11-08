@@ -55,45 +55,46 @@ public class InputHandler implements KeyListener, InputHandlerInterface {
 	}
 
 	public InputHandler(){}
-	public InputHandler(Game game) {
-		game.addKeyListener(this);
-	}
 
-	public void keyPressed(KeyEvent ke) {
-		toggle(ke, true);
+	public void keyPressed(int keyCode) {
+		System.out.println("keypressed on server");
+		toggle(keyCode, true);
 	}
 
 	public void keyReleased(KeyEvent ke) {
-		toggle(ke, false);
+		toggle(ke.getKeyCode(), false);
 	}
 
-	private void toggle(KeyEvent ke, boolean pressed) {
-		if (ke.getKeyCode() == KeyEvent.VK_NUMPAD8) up.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_NUMPAD2) down.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_NUMPAD4) left.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_NUMPAD6) right.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_W) up.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_S) down.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_A) left.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_D) right.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_UP) up.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_DOWN) down.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_LEFT) left.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_RIGHT) right.toggle(pressed);
-
-		if (ke.getKeyCode() == KeyEvent.VK_TAB) menu.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_ALT) menu.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_ALT_GRAPH) menu.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_SPACE) attack.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_CONTROL) attack.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_NUMPAD0) attack.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_INSERT) attack.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_ENTER) menu.toggle(pressed);
-
-		if (ke.getKeyCode() == KeyEvent.VK_X) menu.toggle(pressed);
-		if (ke.getKeyCode() == KeyEvent.VK_C) attack.toggle(pressed);
+	private void toggle(int keyCode, boolean pressed) {
+		if (keyCode == KeyEvent.VK_NUMPAD8) up.toggle(pressed);
+		if (keyCode == KeyEvent.VK_NUMPAD2) down.toggle(pressed);
+		if (keyCode == KeyEvent.VK_NUMPAD4) left.toggle(pressed);
+		if (keyCode == KeyEvent.VK_NUMPAD6) right.toggle(pressed);
+		if (keyCode == KeyEvent.VK_W) up.toggle(pressed);
+		if (keyCode == KeyEvent.VK_S) down.toggle(pressed);
+		if (keyCode == KeyEvent.VK_A) left.toggle(pressed);
+		if (keyCode == KeyEvent.VK_D) right.toggle(pressed);
+		if (keyCode == KeyEvent.VK_UP) up.toggle(pressed);
+		if (keyCode == KeyEvent.VK_DOWN) down.toggle(pressed);
+		if (keyCode == KeyEvent.VK_LEFT) left.toggle(pressed);
+		if (keyCode == KeyEvent.VK_RIGHT) right.toggle(pressed);
+		if (keyCode == KeyEvent.VK_TAB) menu.toggle(pressed);
+		if (keyCode == KeyEvent.VK_ALT) menu.toggle(pressed);
+		if (keyCode == KeyEvent.VK_ALT_GRAPH) menu.toggle(pressed);
+		if (keyCode == KeyEvent.VK_SPACE) attack.toggle(pressed);
+		if (keyCode == KeyEvent.VK_CONTROL) attack.toggle(pressed);
+		if (keyCode == KeyEvent.VK_NUMPAD0) attack.toggle(pressed);
+		if (keyCode == KeyEvent.VK_INSERT) attack.toggle(pressed);
+		if (keyCode == KeyEvent.VK_ENTER) menu.toggle(pressed);
+		if (keyCode == KeyEvent.VK_X) menu.toggle(pressed);
+		if (keyCode == KeyEvent.VK_C) attack.toggle(pressed);
 	}
 
 	public void keyTyped(KeyEvent ke) {
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		toggle(e.getKeyCode(), true);
 	}
 }

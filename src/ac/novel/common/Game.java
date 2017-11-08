@@ -32,7 +32,7 @@ public abstract class Game extends Canvas implements Runnable {
 	protected boolean running = false;
 	protected Screen screen;
 	protected Screen lightScreen;
-	protected InputHandler input = new InputHandler(this);
+	protected InputHandler input = new InputHandler();
 
 	protected int[] colors = new int[256];
 	protected int tickCount = 0;
@@ -56,6 +56,7 @@ public abstract class Game extends Canvas implements Runnable {
 
 	public void start() {
 		running = true;
+		this.addKeyListener(input);
 		new Thread(this).start();
 	}
 
