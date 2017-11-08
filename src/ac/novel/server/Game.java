@@ -10,6 +10,9 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 public class Game extends ac.novel.common.Game {
+
+    static final String NAME = "Minicraft Server";
+
     public static void main(String[] args) {
         Game game = new Game();
         game.setMinimumSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));

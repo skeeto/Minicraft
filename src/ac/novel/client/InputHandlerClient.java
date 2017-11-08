@@ -67,7 +67,6 @@ public class InputHandlerClient extends InputHandler {
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-//		toggle(ke, true);
 	}
 
 	@Override
