@@ -1,11 +1,17 @@
-package ac.novel.common;
+package ac.novel.client;
+
+import ac.novel.common.Game;
+import ac.novel.common.InputHandler;
+import ac.novel.common.InputHandlerInterface;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InputHandler implements KeyListener, InputHandlerInterface {
+public class InputHandlerClient extends InputHandler {
+	private InputHandlerInterface remoteInputHandler;
+
 	public class Key {
 		public int presses, absorbs;
 		public boolean down, clicked;
@@ -54,13 +60,15 @@ public class InputHandler implements KeyListener, InputHandlerInterface {
 		}
 	}
 
-	public InputHandler(){}
-	public InputHandler(Game game) {
+	public InputHandlerClient(Game game, InputHandlerInterface remoteInputHandler) {
 		game.addKeyListener(this);
+		this.remoteInputHandler = remoteInputHandler;
 	}
 
 	public void keyPressed(KeyEvent ke) {
-		toggle(ke, true);
+		System.out.println("Sending keypressed event to server");
+		remoteInputHandler.keyPressed(ke);
+//		toggle(ke, true);
 	}
 
 	public void keyReleased(KeyEvent ke) {

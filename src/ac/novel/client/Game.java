@@ -1,9 +1,22 @@
 package ac.novel.client;
 
+import ac.novel.common.InputHandlerInterface;
+
 import javax.swing.*;
 import java.awt.*;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 public class Game extends ac.novel.common.Game {
+
+    public void start(InputHandlerInterface inputHandlerServerInterface) {
+        running = true;
+        input = new InputHandlerClient(this, inputHandlerServerInterface);
+        new Thread(this).start();
+    }
+
     public static void main(String[] args) {
         Game game = new Game();
         game.setMinimumSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
@@ -19,6 +32,21 @@ public class Game extends ac.novel.common.Game {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        game.start();
+        // RMI
+        System.err.println("Client before RMI");
+        String reg_host = "localhost";
+        int reg_port = 1234;
+
+        try {
+            Registry registry = LocateRegistry.getRegistry(reg_host,reg_port);
+            InputHandlerInterface stub = (InputHandlerInterface) registry.lookup("InputHandler");
+            System.err.println("Client got remote InputHandler");
+            game.start(stub);
+            System.err.println("Game Started");
+        } catch (NotBoundException e) {
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 }

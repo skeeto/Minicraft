@@ -1,7 +1,13 @@
 package ac.novel.server;
 
+import ac.novel.common.InputHandler;
+import ac.novel.common.InputHandlerInterface;
+
 import javax.swing.*;
 import java.awt.*;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 
 public class Game extends ac.novel.common.Game {
     public static void main(String[] args) {
@@ -19,6 +25,22 @@ public class Game extends ac.novel.common.Game {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        game.start();
+        try {
+            game.start();
+            InputHandlerInterface obj = new InputHandler(game);
+            int port = 1234;
+            // Bind the remote object's stub in the registry
+//			Naming.rebind("rmi://localhost:" + port + "/InputHandler", obj);
+
+            InputHandlerInterface stub = (InputHandlerInterface) UnicastRemoteObject.exportObject(obj, port);
+            Registry reg = LocateRegistry.createRegistry(port);
+            System.err.println("Server is ready from main");
+            reg.rebind("InputHandler", stub);
+
+            System.err.println("Server ready");
+        } catch (Exception e) {
+            System.err.println("Server exception: " + e.toString());
+            e.printStackTrace();
+        }
     }
 }
