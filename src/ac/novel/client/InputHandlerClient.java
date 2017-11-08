@@ -67,7 +67,12 @@ public class InputHandlerClient extends InputHandler {
 
 	public void keyPressed(KeyEvent ke) {
 		System.out.println("Sending keypressed event to server");
-		remoteInputHandler.keyPressed(ke);
+    try {
+		  remoteInputHandler.keyPressed(ke);
+    } catch(Exception e) {
+      e.printStackTrace();
+      System.out.println(e);
+    }
 //		toggle(ke, true);
 	}
 
