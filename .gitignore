@@ -1,6 +1,5 @@
-client/build
-server/build
-client/dist
-server/dist
-client/.idea
-server/.idea
+build
+dist
+.idea
+*.iml
+*/.DS_Store
