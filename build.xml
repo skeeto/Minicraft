@@ -2,14 +2,17 @@
 <project name="Minicraft" default="jar">
 
   <!-- Project configuration -->
-  <property name="main.class" value="com.mojang.ld22.Game"/>
+  <property name="client.main.class" value="ac.novel.client.Game"/>
+  <property name="server.main.class" value="ac.novel.client.Game"/>
   <property name="base.name" value="minicraft"/>
+
 
   <!-- Directory Layout -->
   <property name="src.dir" value="src"/>
   <property name="res.dir" value="res"/>
   <property name="build.dir" value="build"/>
   <property name="dist.dir" value="dist"/>
+
 
   <!-- Targets -->
 
@@ -25,6 +28,7 @@
     </copy>
   </target>
 
+
   <target name="jar" depends="compile" description="Create the distributables.">
     <jar destfile="${dist.dir}/${base.name}.jar"
          basedir="${build.dir}/classes">
@@ -34,15 +38,27 @@
     </jar>
   </target>
 
-  <target name="run" depends="compile"
+
+  <target name="run-client" depends="compile"
           description="Run the application in hotswap mode.">
-    <java classname="${main.class}" classpath="${build.dir}/classes"
+    <java classname="${client.main.class}" classpath="${build.dir}/classes"
           fork="true">
       <jvmarg line="-Xdebug -Xrunjdwp:transport=dt_socket,address=9000,server=y,suspend=n"/>
     </java>
   </target>
 
-  <target name="hotswap" depends="compile" description="Replace running code.">
+  <target name="run-server" depends="compile"
+          description="Run the application in hotswap mode.">
+    <java classname="${server.main.class}" classpath="${build.dir}/classes"
+          fork="true">
+      <jvmarg line="-Xdebug -Xrunjdwp:transport=dt_socket,address=9001,server=y,suspend=n"/>
+    </java>
+  </target>
+
+
+  <target name="hotswap" depends="hotswap-client,hotswap-server" description="Replace running code." />
+
+  <target name="hotswap-client" depends="compile" description="Replace running client code.">
     <taskdef name="hotswap" classname="dak.ant.taskdefs.Hotswap"/>
     <hotswap verbose="true" port="9000">
       <fileset dir="${build.dir}/classes" includes="**/*.class">
@@ -50,6 +66,16 @@
       </fileset>
     </hotswap>
   </target>
+
+  <target name="hotswap-server" depends="compile" description="Replace running server code.">
+    <taskdef name="hotswap" classname="dak.ant.taskdefs.Hotswap"/>
+    <hotswap verbose="true" port="9001">
+      <fileset dir="${build.dir}/classes" includes="**/*.class">
+        <modified/>
+      </fileset>
+    </hotswap>
+  </target>
+
 
   <target name="clean" description="Delete all generated files.">
     <delete dir="${build.dir}"/>
