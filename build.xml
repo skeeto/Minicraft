@@ -3,7 +3,7 @@
 
   <!-- Project configuration -->
   <property name="client.main.class" value="ac.novel.client.Game"/>
-  <property name="server.main.class" value="ac.novel.client.Game"/>
+  <property name="server.main.class" value="ac.novel.server.Game"/>
   <property name="base.name" value="minicraft"/>
 
 
