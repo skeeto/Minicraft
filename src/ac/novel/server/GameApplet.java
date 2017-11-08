@@ -22,7 +22,8 @@ public class GameApplet extends Applet {
 	public void start() {
 		try {
 			game.start();
-			InputHandler obj = new InputHandler(game);
+			InputHandler obj = new InputHandler();
+			game.addKeyListener(obj);
 			InputHandlerInterface stub = (InputHandlerInterface) UnicastRemoteObject.exportObject(obj, 1234);
 
 			// Bind the remote object's stub in the registry

@@ -27,7 +27,7 @@ public class Game extends ac.novel.common.Game {
 
         try {
             game.start();
-            InputHandlerInterface obj = new InputHandler(game);
+            InputHandlerInterface obj = new InputHandler();
             int port = 1234;
             // Bind the remote object's stub in the registry
 //			Naming.rebind("rmi://localhost:" + port + "/InputHandler", obj);
