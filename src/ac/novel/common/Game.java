@@ -39,9 +39,9 @@ public abstract class Game extends Canvas implements Runnable {
 	public int gameTime = 0;
 
 	protected Level level;
-	protected Level[] levels = new Level[5];
-	protected int currentLevel = 3;
-	public Player player;
+	public static Level[] levels = new Level[5];
+	public static int currentLevel = 3;
+	public static Player player;
 
 	public Menu menu;
 	protected int playerDeadTime;

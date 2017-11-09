@@ -1,5 +1,6 @@
 package ac.novel.client;
 
+import ac.novel.common.InitInterface;
 import ac.novel.common.InputHandlerInterface;
 
 import javax.swing.*;
@@ -41,7 +42,9 @@ public class Game extends ac.novel.common.Game {
         try {
             Registry registry = LocateRegistry.getRegistry(reg_host,reg_port);
             InputHandlerInterface stub = (InputHandlerInterface) registry.lookup("InputHandler");
+            InitInterface initStub = (InitInterface) registry.lookup("Init");
             System.err.println("Client got remote InputHandler");
+            initStub.getSavedState();
             game.start(stub);
             System.err.println("Game Started");
         } catch (NotBoundException e) {
