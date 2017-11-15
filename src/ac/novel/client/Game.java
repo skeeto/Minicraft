@@ -9,6 +9,7 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.ArrayList;
 
 public class Game extends ac.novel.common.Game {
 
@@ -44,7 +45,7 @@ public class Game extends ac.novel.common.Game {
             InputHandlerInterface stub = (InputHandlerInterface) registry.lookup("InputHandler");
             InitInterface initStub = (InitInterface) registry.lookup("Init");
             System.err.println("Client got remote InputHandler");
-            initStub.getSavedState();
+            ArrayList<String> savedState = initStub.getSavedState();
             game.start(stub);
             System.err.println("Game Started");
         } catch (NotBoundException e) {
