@@ -1,7 +1,6 @@
 package ac.novel.server;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,7 +13,6 @@ import ac.novel.common.entity.ItemEntity;
 import ac.novel.common.entity.Lantern;
 import ac.novel.common.entity.Player;
 import ac.novel.common.entity.Spark;
-import ac.novel.common.entity.particle.Particle;
 import ac.novel.common.entity.particle.TextParticle;
 import ac.novel.common.item.Item;
 
@@ -26,27 +24,18 @@ public class Save {
 	Game game;
 
 	/// this saves world options
-	public Save(String worldname) {
+	public Save(ac.novel.common.Game game2) {
 		
 		data = new ArrayList<>();
-
+		this.game = (Game) game2;
 		writeGame("Game");
 		// writePrefs("KeyPrefs");
 		writeWorld("Level");
-		writePlayer("Player", Game.player);
-		writeInventory("Inventory", Game.player);
+		writePlayer("Player", game2.player);
+		writeInventory("Inventory", game2.player);
 		writeEntities("Entities");
-
-		
-		// TODO rmi here maybe?
-		Game.notifyAll("World Saved!");
-		Game.asTick = 0;
-		Game.saving = false;
 	}
 
-	// this saves global options
-	public Save() {
-	}
 
 	public static void writeFile(String filename, String[] lines) throws IOException {
 		try (BufferedWriter br = new BufferedWriter(new FileWriter(filename))) {
@@ -62,13 +51,7 @@ public class Save {
 		}
 
 		data.clear();
-
-		LoadingDisplay.progress(7);
-		if (LoadingDisplay.getPercentage() > 100) {
-			LoadingDisplay.setPercentage(100);
-		}
-
-		Game.render(); // AH HA!!! HERE'S AN IMPORTANT STATEMENT!!!!
+		//Game.render(); // AH HA!!! HERE'S AN IMPORTANT STATEMENT!!!!
 	}
 
 	public static void writeToFile(String filename, String[] savedata, boolean isWorldSave) throws IOException {
@@ -90,54 +73,42 @@ public class Save {
 	public void writeGame(String filename) {
 		
 		//TODO
-		data.add(String.valueOf(Game.tickCount));
-		data.add(String.valueOf(Game.gameTime));
-		data.add(String.valueOf(Settings.getIdx("diff")));
-		data.add(String.valueOf(AirWizard.beaten));
+		data.add(String.valueOf(game.tickCount));
+		data.add(String.valueOf(game.gameTime));
 		//writeToFile(location + filename + extension, data);
 	}
 
-	private void writeServerConfig(String filename, MinicraftServer server) {
-		data.add(String.valueOf(server.getPlayerCap()));
-		// data.add(String.join(":", server.getOpNames().toArray(new String[0])));
-
-		writeToFile(location + filename + extension, data);
-	}
-
 	public void writeWorld(String filename) {
-		for (int l = 0; l < Game.levels.length; l++) {
-			String worldSize = String.valueOf(Settings.get("size"));
-			data.add(worldSize);
-			data.add(worldSize);
-			data.add(String.valueOf(Game.levels[l].depth));
+		for (int l = 0; l < game.levels.length; l++) {
+			data.add(String.valueOf(game.levels[l].depth));
 
-			for (int x = 0; x < Game.levels[l].w; x++) {
-				for (int y = 0; y < Game.levels[l].h; y++) {
-					data.add(String.valueOf(Game.levels[l].getTile(x, y).name));
+			for (int x = 0; x < game.levels[l].w; x++) {
+				for (int y = 0; y < game.levels[l].h; y++) {
+					data.add(String.valueOf(game.levels[l].getTile(x, y).toString()));
 				}
 			}
 
-			writeToFile(location + filename + l + extension, data);
+			//writeToFile(location + filename + l + extension, data);
 		}
 
-		for (int l = 0; l < Game.levels.length; l++) {
-			for (int x = 0; x < Game.levels[l].w; x++) {
-				for (int y = 0; y < Game.levels[l].h; y++) {
-					data.add(String.valueOf(Game.levels[l].getData(x, y)));
+		for (int l = 0; l < game.levels.length; l++) {
+			for (int x = 0; x < game.levels[l].w; x++) {
+				for (int y = 0; y < game.levels[l].h; y++) {
+					data.add(String.valueOf(game.levels[l].getData(x, y)));
 				}
 			}
 
-			writeToFile(location + filename + l + "data" + extension, data);
+			//writeToFile(location + filename + l + "data" + extension, data);
 		}
 
 	}
 
 	public void writePlayer(String filename, Player player) {
 		writePlayer(player, data);
-		writeToFile(location + filename + extension, data);
+		//writeToFile(location + filename + extension, data);
 	}
 
-	public static void writePlayer(Player player, List<String> data) {
+	public void writePlayer(Player player, List<String> data) {
 		//data.clear();
 		data.add(String.valueOf(player.x));
 		data.add(String.valueOf(player.y));
@@ -146,7 +117,7 @@ public class Save {
 		// data.add(String.valueOf(player.ac));
 		data.add("25"); // TODO filler; remove this, but make sure not to break the Load class's
 						// LoadPlayer() method while doing so.
-		data.add(String.valueOf(Game.currentLevel));
+		data.add(String.valueOf(game.currentLevel));
 //		data.add(Settings.getIdx("mode")
 //				+ (Game.isMode("score") ? ";" + Game.scoreTime + ";" + Settings.get("scoretime") : ""));
 
@@ -154,43 +125,34 @@ public class Save {
 
 	public void writeInventory(String filename, Player player) {
 		writeInventory(player, data);
-		writeToFile(location + filename + extension, data);
+		//writeToFile(location + filename + extension, data);
 	}
 
 	public static void writeInventory(Player player, List<String> data) {
 		//data.clear();
-		if (player.activeItem != null) {
-			if (player.activeItem instanceof StackableItem) {
-				data.add(player.activeItem.name + ";" + ((StackableItem) player.activeItem).count);
-			} else {
-				data.add(player.activeItem.name);
-			}
-		}
-
 		Inventory inventory = player.inventory;
 
 		for (int i = 0; i < inventory.invSize(); i++) {
-			if (inventory.get(i) instanceof StackableItem) {
-				data.add(inventory.get(i).name + ";" + ((StackableItem) inventory.get(i)).count);
-			} else {
-				data.add(inventory.get(i).name);
+			if (inventory.get(i) instanceof Item) {
+				data.add(inventory.get(i).getName() + ";" + (inventory.count((Item) inventory.get(i))));
 			}
 		}
 	}
 
 	public void writeEntities(String filename) {
-		for (int l = 0; l < ac.novel.common.Game.levels.length; l++) {
-			for (Entity e : ac.novel.common.Game.levels[l].getEntityArray()) {
+		for (int l = 0; l < game.levels.length; l++) {
+			//TODO not so sure 
+			for (Entity e : game.levels[l].getEntities()) {
 				String saved = writeEntity(e, true);
 				if (saved.length() > 0)
 					data.add(saved);
 			}
 		}
 
-		writeToFile(location + filename + extension, data);
+		//writeToFile(location + filename + extension, data);
 	}
 
-	public static String writeEntity(Entity e, boolean isLocalSave) {
+	public String writeEntity(Entity e, boolean isLocalSave) {
 		String name = e.getClass().getName().replace("minicraft.entity.", "");
 		// name = name.substring(name.lastIndexOf(".")+1);
 		StringBuilder extradata = new StringBuilder();
@@ -207,35 +169,33 @@ public class Save {
 
 			for (int ii = 0; ii < chest.inventory.invSize(); ii++) {
 				Item item = chest.inventory.get(ii);
-				extradata.append(":").append(item.name);
-				if (item instanceof StackableItem)
-					extradata.append(";").append(chest.inventory.count(item));
+				extradata.append(":").append(item.getName());
 			}
 
 		}
 
 		if (e instanceof Lantern) {
-			extradata.append(":").append(((Lantern) e).type.ordinal());
+			extradata.append(":").append(((Lantern) e));
 		}
 
 
-		if (!isLocalSave) {
-			if (e instanceof ItemEntity)
-				extradata.append(":").append(((ItemEntity) e).getData());
-			if (e instanceof Spark)
-				extradata.append(":").append(((Spark) e).getData());
-			if (e instanceof TextParticle)
-				extradata.append(":").append(((TextParticle) e).getData());
-		}
+		
+		if (e instanceof ItemEntity)
+			extradata.append(":").append(((ItemEntity) e).getData());
+		if (e instanceof Spark)
+			extradata.append(":").append(((Spark) e).getData());
+		if (e instanceof TextParticle)
+			extradata.append(":").append(((TextParticle) e));
+		
 		// else // is a local save
 
 		int depth = 0;
-		if (e.getLevel() == null)
+		if (e.level == null)
 			System.out.println("WARNING: saving entity with no level reference: " + e + "; setting level to surface");
 		else
-			depth = e.getLevel().depth;
+			depth = e.level.depth;
 
-		extradata.append(":").append(Game.lvlIdx(depth));
+		extradata.append(":").append(game.levels[depth]);
 
 		return name + "[" + e.x + ":" + e.y + extradata + "]";
 	}

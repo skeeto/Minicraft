@@ -10,6 +10,7 @@ public class AirWizard extends Mob {
 	private int attackDelay = 0;
 	private int attackTime = 0;
 	private int attackType = 0;
+	public static boolean beaten = false;
 
 	public AirWizard() {
 		x = random.nextInt(64 * 16);

@@ -12,7 +12,8 @@ public class Screen {
 	public static final int BIT_MIRROR_X = 0x01;
 	public static final int BIT_MIRROR_Y = 0x02;
 
-	public final int w, h;
+	public static int w = 0; // TODO: don't initialise here
+	public static int h = 0;
 	public int[] pixels;
 
 	private SpriteSheet sheet;

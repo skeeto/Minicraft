@@ -24,6 +24,10 @@ public class Spark extends Entity {
 
 		lifeTime = 60 * 10 + random.nextInt(30);
 	}
+	
+	public String getData() {
+		return owner+"";
+	}
 
 	public void tick() {
 		time++;

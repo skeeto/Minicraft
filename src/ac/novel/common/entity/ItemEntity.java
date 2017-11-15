@@ -62,6 +62,10 @@ public class ItemEntity extends Entity {
 		if (hurtTime > 0) hurtTime--;
 	}
 
+	public String getData() {
+		return String.join(":", (new String[] {item.getName(), zz+"", lifeTime+"", time+"", xa+"", ya+"", za+""}));
+	}
+	
 	public boolean isBlockableBy(Mob mob) {
 		return false;
 	}
