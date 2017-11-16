@@ -1,2 +1,6 @@
 build
 dist
+log
+.idea
+*.iml
+*/.DS_Store
