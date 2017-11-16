@@ -23,26 +23,24 @@ public class InputHandlerClient extends InputHandler {
 		}
 		public void toggle(boolean pressed) {
             if (!down && pressed) {
-                System.out.println("Sending keyPressed event to server");
                 try {
                     remoteInputHandler.keyPressed(keycode);
                 } catch (RemoteException e) {
                     System.out.println("Failure on keyPressed");
-                    //e.printStackTrace();
+                    e.printStackTrace();
                 }
             } else if (down && pressed) {
-                System.out.println("Sending keyDown event to server");
                 try {
                     remoteInputHandler.keyDown(keycode);
                 } catch (RemoteException e) {
                     System.out.println("Failure on keyDown");
-                    //e.printStackTrace();
+                    e.printStackTrace();
                 }
             } else {
-                System.out.println("Sending keyReleased event to server");
                 try {
                     remoteInputHandler.keyReleased(keycode);
                 } catch (RemoteException e) {
+                    System.out.println("Failure on keyReleased");
                     e.printStackTrace();
                 }
             }

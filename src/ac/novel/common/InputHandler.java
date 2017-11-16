@@ -16,7 +16,6 @@ public class InputHandler implements KeyListener, InputHandlerInterface {
 
         public void clientToggle(boolean pressed) {
             if (pressed) {
-                System.out.println("Incrementing clients!");
                 clients++;
             } else {
                 clients--;
@@ -32,7 +31,6 @@ public class InputHandler implements KeyListener, InputHandlerInterface {
 			if (pressed) {
 				presses++;
 			}
-            System.out.println("Client count is " + clients);
 		}
 
 		public void tick() {
@@ -69,17 +67,14 @@ public class InputHandler implements KeyListener, InputHandlerInterface {
 	public InputHandler(){}
 
 	public void keyPressed(int keyCode) {
-		System.out.println("keyPressed on server");
 		clientToggle(keyCode, true);
 	}
 
 	public void keyDown(int keyCode) {
-		System.out.println("keyDown on server");
 		toggle(keyCode, true);
 	}
 
 	public void keyReleased(int keyCode) {
-		System.out.println("keyReleased on server");
 		clientToggle(keyCode, false);
 	}
 
