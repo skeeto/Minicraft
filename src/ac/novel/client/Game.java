@@ -50,4 +50,12 @@ public class Game extends ac.novel.common.Game {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void tick() {
+        if (!hasFocus()) {
+            input.releaseAll();
+        }
+        super.tick();
+    }
 }
