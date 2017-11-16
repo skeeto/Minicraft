@@ -9,7 +9,6 @@ import ac.novel.common.level.Level;
 import ac.novel.common.level.tile.Tile;
 import ac.novel.common.screen.*;
 import ac.novel.common.screen.Menu;
-import ac.novel.server.Save;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -331,4 +330,5 @@ public abstract class Game extends Canvas implements Runnable {
 		wonTimer = 60 * 3;
 		hasWon = true;
 	}
+	
 }

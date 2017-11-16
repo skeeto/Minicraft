@@ -5,9 +5,10 @@ import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Screen;
 import ac.novel.common.level.Level;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class LavaTile extends Tile {
+public class LavaTile extends Tile implements Serializable {
 	public LavaTile(int id) {
 		super(id);
 		connectsToSand = true;

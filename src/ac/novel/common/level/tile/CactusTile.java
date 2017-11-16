@@ -1,5 +1,7 @@
 package ac.novel.common.level.tile;
 
+import java.io.Serializable;
+
 import ac.novel.common.entity.Entity;
 import ac.novel.common.entity.ItemEntity;
 import ac.novel.common.entity.Mob;
@@ -11,7 +13,7 @@ import ac.novel.common.item.ResourceItem;
 import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
-public class CactusTile extends Tile {
+public class CactusTile extends Tile implements Serializable {
 	public CactusTile(int id) {
 		super(id);
 		connectsToSand = true;

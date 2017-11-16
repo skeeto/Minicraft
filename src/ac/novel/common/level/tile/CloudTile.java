@@ -1,5 +1,7 @@
 package ac.novel.common.level.tile;
 
+import java.io.Serializable;
+
 import ac.novel.common.entity.Entity;
 import ac.novel.common.entity.ItemEntity;
 import ac.novel.common.entity.Player;
@@ -12,7 +14,7 @@ import ac.novel.common.item.ToolType;
 import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
-public class CloudTile extends Tile {
+public class CloudTile extends Tile implements Serializable {
 	public CloudTile(int id) {
 		super(id);
 	}

@@ -15,7 +15,7 @@ import ac.novel.common.sound.Sound;
 
 import java.util.List;
 
-public class Player extends Mob {
+public class Player extends Mob implements Cloneable {
 	private InputHandler input;
 	private int attackTime, attackDir;
 
@@ -40,6 +40,18 @@ public class Player extends Mob {
 
 		inventory.add(new FurnitureItem(new Workbench()));
 		inventory.add(new PowerGloveItem());
+	}
+	
+	public Player getPlayer() {
+		Player player = null;
+		try {
+			player = (Player) this.clone();
+			player.game = null;
+			player.input = null;
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return player;
 	}
 
 	public void tick() {

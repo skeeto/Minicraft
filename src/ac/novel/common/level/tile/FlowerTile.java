@@ -1,5 +1,7 @@
 package ac.novel.common.level.tile;
 
+import java.io.Serializable;
+
 import ac.novel.common.entity.ItemEntity;
 import ac.novel.common.entity.Mob;
 import ac.novel.common.entity.Player;
@@ -12,7 +14,7 @@ import ac.novel.common.item.ToolType;
 import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
-public class FlowerTile extends GrassTile {
+public class FlowerTile extends GrassTile implements Serializable {
 	public FlowerTile(int id) {
 		super(id);
 		tiles[id] = this;

@@ -1,6 +1,8 @@
 package ac.novel.common.gfx;
 
-public class Font {
+import java.io.Serializable;
+
+public class Font implements Serializable {
 	
 	private static String chars = "" + //
 			"ABCDEFGHIJKLMNOPQRSTUVWXYZ      " + //

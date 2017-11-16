@@ -1,11 +1,13 @@
 package ac.novel.common.level.tile;
 
+import java.io.Serializable;
+
 import ac.novel.common.entity.Entity;
 import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Screen;
 import ac.novel.common.level.Level;
 
-public class HoleTile extends Tile {
+public class HoleTile extends Tile implements Serializable {
 	public HoleTile(int id) {
 		super(id);
 		connectsToSand = true;

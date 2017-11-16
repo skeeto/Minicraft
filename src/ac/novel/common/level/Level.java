@@ -5,9 +5,13 @@ import ac.novel.common.gfx.Screen;
 import ac.novel.common.level.levelgen.LevelGen;
 import ac.novel.common.level.tile.Tile;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Level {
+public class Level implements Serializable {
+	/**
+	 * 
+	 */
 	private Random random = new Random();
 
 	public int w, h;

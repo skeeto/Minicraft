@@ -1,10 +1,12 @@
 package ac.novel.common.crafting;
 
+import java.io.Serializable;
+
 import ac.novel.common.entity.Player;
 import ac.novel.common.item.ResourceItem;
 import ac.novel.common.item.resource.Resource;
 
-public class ResourceRecipe extends Recipe {
+public class ResourceRecipe extends Recipe implements Serializable {
 	private Resource resource;
 
 	public ResourceRecipe(Resource resource) {

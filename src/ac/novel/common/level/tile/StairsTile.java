@@ -1,10 +1,12 @@
 package ac.novel.common.level.tile;
 
+import java.io.Serializable;
+
 import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Screen;
 import ac.novel.common.level.Level;
 
-public class StairsTile extends Tile {
+public class StairsTile extends Tile implements Serializable {
 	private boolean leadsUp;
 
 	public StairsTile(int id, boolean leadsUp) {

@@ -1,9 +1,11 @@
 package ac.novel.common.entity;
 
+import java.io.Serializable;
+
 import ac.novel.common.gfx.Color;
 import ac.novel.common.screen.ContainerMenu;
 
-public class Chest extends Furniture {
+public class Chest extends Furniture implements Serializable {
 	public Inventory inventory = new Inventory();
 
 	public Chest() {

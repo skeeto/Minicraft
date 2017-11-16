@@ -5,10 +5,14 @@ import ac.novel.common.item.Item;
 import ac.novel.common.level.Level;
 import ac.novel.common.level.tile.Tile;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
 
-public class Entity {
+public class Entity implements Serializable {
+	/**
+	 * 
+	 */
 	protected final Random random = new Random();
 	public int x, y;
 	public int xr = 6;

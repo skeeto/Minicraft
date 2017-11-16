@@ -8,9 +8,10 @@ import ac.novel.common.item.Item;
 import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Tile {
+public class Tile implements Serializable {
 	public static int tickCount = 0;
 	protected Random random = new Random();
 

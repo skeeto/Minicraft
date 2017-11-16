@@ -1,12 +1,14 @@
 package ac.novel.common.entity;
 
+import java.io.Serializable;
+
 import ac.novel.common.entity.particle.TextParticle;
 import ac.novel.common.gfx.Color;
 import ac.novel.common.level.Level;
 import ac.novel.common.level.tile.Tile;
 import ac.novel.common.sound.Sound;
 
-public class Mob extends Entity {
+public class Mob extends Entity implements Serializable {
 	protected int walkDist = 0;
 	protected int dir = 0;
 	public int hurtTime = 0;

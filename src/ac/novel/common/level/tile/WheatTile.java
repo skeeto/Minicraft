@@ -1,5 +1,7 @@
 package ac.novel.common.level.tile;
 
+import java.io.Serializable;
+
 import ac.novel.common.entity.Entity;
 import ac.novel.common.entity.ItemEntity;
 import ac.novel.common.entity.Mob;
@@ -13,7 +15,7 @@ import ac.novel.common.item.ToolType;
 import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
-public class WheatTile extends Tile {
+public class WheatTile extends Tile implements Serializable {
 	public WheatTile(int id) {
 		super(id);
 	}

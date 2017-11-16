@@ -1,5 +1,7 @@
 package ac.novel.common.item;
 
+import java.io.Serializable;
+
 import ac.novel.common.entity.Entity;
 import ac.novel.common.entity.Furniture;
 import ac.novel.common.entity.Player;
@@ -7,7 +9,7 @@ import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Font;
 import ac.novel.common.gfx.Screen;
 
-public class PowerGloveItem extends Item {
+public class PowerGloveItem extends Item implements Serializable {
 	public int getColor() {
 		return Color.get(-1, 100, 320, 430);
 	}

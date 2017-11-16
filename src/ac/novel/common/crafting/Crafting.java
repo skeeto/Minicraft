@@ -4,10 +4,11 @@ import ac.novel.common.entity.*;
 import ac.novel.common.item.ToolType;
 import ac.novel.common.item.resource.Resource;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Crafting {
+public class Crafting implements Serializable {
 	public static final List<Recipe> anvilRecipes = new ArrayList<Recipe>();
 	public static final List<Recipe> ovenRecipes = new ArrayList<Recipe>();
 	public static final List<Recipe> furnaceRecipes = new ArrayList<Recipe>();

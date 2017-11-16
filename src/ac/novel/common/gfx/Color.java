@@ -1,6 +1,8 @@
 package ac.novel.common.gfx;
 
-public class Color {
+import java.io.Serializable;
+
+public class Color implements Serializable {
 	
 	public static final int WHITE = Color.get(-1, 555);
 	public static final int GRAY = Color.get(-1, 333);

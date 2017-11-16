@@ -3,9 +3,10 @@ package ac.novel.common.entity;
 import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Screen;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Spark extends Entity {
+public class Spark extends Entity implements Serializable {
 	private int lifeTime;
 	public double xa, ya;
 	public double xx, yy;

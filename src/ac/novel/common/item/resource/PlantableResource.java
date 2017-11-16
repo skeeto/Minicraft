@@ -4,10 +4,11 @@ import ac.novel.common.entity.Player;
 import ac.novel.common.level.Level;
 import ac.novel.common.level.tile.Tile;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
-public class PlantableResource extends Resource {
+public class PlantableResource extends Resource implements Serializable {
 	private List<Tile> sourceTiles;
 	private Tile targetTile;
 

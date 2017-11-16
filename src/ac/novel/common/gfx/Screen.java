@@ -1,6 +1,8 @@
 package ac.novel.common.gfx;
 
-public class Screen {
+import java.io.Serializable;
+
+public class Screen implements Serializable {
 	/*
 	 * public static final int MAP_WIDTH = 64; // Must be 2^x public static final int MAP_WIDTH_MASK = MAP_WIDTH - 1;
 	 * 

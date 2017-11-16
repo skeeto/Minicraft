@@ -2,6 +2,8 @@ package ac.novel.client;
 
 import ac.novel.common.InitInterface;
 import ac.novel.common.InputHandlerInterface;
+import ac.novel.common.Save;
+import ac.novel.common.SaveInterface;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,9 +45,13 @@ public class Game extends ac.novel.common.Game {
         try {
             Registry registry = LocateRegistry.getRegistry(reg_host,reg_port);
             InputHandlerInterface stub = (InputHandlerInterface) registry.lookup("InputHandler");
-            InitInterface initStub = (InitInterface) registry.lookup("Init");
             System.err.println("Client got remote InputHandler");
-            ArrayList<String> savedState = initStub.getSavedState();
+//            InitInterface initStub = (InitInterface) registry.lookup("Init");
+            SaveInterface saveStub = (SaveInterface) registry.lookup("GetSave");
+//            ArrayList<String> savedState = initStub.getSavedState();
+            Save savedGame = saveStub.getSave();
+            System.err.println("Client got remote saved game");
+            System.err.println(String.format("Save dump: %d %d %d", savedGame.currentLevel, savedGame.player.x, savedGame.player.y));
             game.start(stub);
             System.err.println("Game Started");
         } catch (NotBoundException e) {

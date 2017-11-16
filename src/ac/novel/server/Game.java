@@ -3,6 +3,7 @@ package ac.novel.server;
 import ac.novel.common.InitInterface;
 import ac.novel.common.InputHandler;
 import ac.novel.common.InputHandlerInterface;
+import ac.novel.common.SaveInterface;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,7 +34,8 @@ public class Game extends ac.novel.common.Game {
             game.start();
             InputHandlerInterface obj = new InputHandler();
 //            SaveInterface saveObj = new Save();
-            InitInterface initObj = new Init();
+//            InitInterface initObj = new Init();
+            SaveInterface saveObj = new GetSave(game);
             
             int port = 1234;
             // Bind the remote object's stub in the registry
@@ -41,14 +43,16 @@ public class Game extends ac.novel.common.Game {
 
             InputHandlerInterface stub = (InputHandlerInterface) UnicastRemoteObject.exportObject(obj, port);
 //            SaveInterface saveStub = (SaveInterface) UnicastRemoteObject.exportObject(saveObj, port);
-            InitInterface initStub = (InitInterface) UnicastRemoteObject.exportObject(initObj, port);
+//            InitInterface initStub = (InitInterface) UnicastRemoteObject.exportObject(initObj, port);
+            SaveInterface saveStub = (SaveInterface) UnicastRemoteObject.exportObject(saveObj, port);
             
             Registry reg = LocateRegistry.createRegistry(port);
             System.err.println("Server is ready from main");
             
             reg.rebind("InputHandler", stub);
 //            reg.rebind("Save", saveStub);
-            reg.rebind("Init", initStub);
+//            reg.rebind("Init", initStub);
+            reg.rebind("GetSave", saveStub);
 
             System.err.println("Server ready");
         } catch (Exception e) {

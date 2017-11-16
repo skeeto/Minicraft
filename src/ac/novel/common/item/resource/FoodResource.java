@@ -1,10 +1,12 @@
 package ac.novel.common.item.resource;
 
+import java.io.Serializable;
+
 import ac.novel.common.entity.Player;
 import ac.novel.common.level.Level;
 import ac.novel.common.level.tile.Tile;
 
-public class FoodResource extends Resource {
+public class FoodResource extends Resource implements Serializable {
 	private int heal;
 	private int staminaCost;
 

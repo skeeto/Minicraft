@@ -5,9 +5,10 @@ import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Screen;
 import ac.novel.common.level.Level;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class WaterTile extends Tile {
+public class WaterTile extends Tile implements Serializable {
 	public WaterTile(int id) {
 		super(id);
 		connectsToSand = true;

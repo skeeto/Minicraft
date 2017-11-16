@@ -1,8 +1,9 @@
 package ac.novel.common.gfx;
 
+import java.io.Serializable;
 import java.util.Arrays;
 	
-public class FontStyle {
+public class FontStyle implements Serializable {
 		/*
 		draw needs some parameters...
 		CENTERED or no - and can be screen, or given bounds

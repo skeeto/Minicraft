@@ -16,7 +16,7 @@ import ac.novel.common.entity.Spark;
 import ac.novel.common.entity.particle.TextParticle;
 import ac.novel.common.item.Item;
 
-public class Save {
+public class Savebac {
 
 	public static String extension = ".miniplussave";
 
@@ -24,7 +24,7 @@ public class Save {
 	Game game;
 
 	/// this saves world options
-	public Save(ac.novel.common.Game game2) {
+	public Savebac(ac.novel.common.Game game2) {
 		
 		data = new ArrayList<>();
 		this.game = (Game) game2;

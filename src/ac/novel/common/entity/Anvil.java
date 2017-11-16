@@ -1,10 +1,12 @@
 package ac.novel.common.entity;
 
+import java.io.Serializable;
+
 import ac.novel.common.crafting.Crafting;
 import ac.novel.common.gfx.Color;
 import ac.novel.common.screen.CraftingMenu;
 
-public class Anvil extends Furniture {
+public class Anvil extends Furniture implements Serializable {
 	public Anvil() {
 		super("Anvil");
 		col = Color.get(-1, 000, 111, 222);
