@@ -75,7 +75,9 @@ public class InputHandlerClient extends InputHandler {
 	@Override
 	public void releaseAll() {
         for (Key key : keys) {
-            key.toggle(false);
+        	if (key.down) {
+	            key.toggle(false);
+        	}
         }
 	}
 
