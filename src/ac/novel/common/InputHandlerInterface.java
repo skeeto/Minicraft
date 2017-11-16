@@ -12,7 +12,7 @@ public interface InputHandlerInterface extends Remote {
 
 	public void keyPressed(int keyCode) throws RemoteException;
 
-	public void keyReleased(KeyEvent ke) throws RemoteException;
+    public void keyDown(int keyCode) throws RemoteException;
 
-	public void keyTyped(KeyEvent ke) throws RemoteException;
+	public void keyReleased(int keyCode) throws RemoteException;
 }
