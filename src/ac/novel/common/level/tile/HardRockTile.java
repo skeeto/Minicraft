@@ -17,7 +17,7 @@ import ac.novel.common.item.ToolType;
 import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
-public class HardRockTile extends Tile implements Serializable {
+public class HardRockTile extends Tile {
 	public HardRockTile(int id) {
 		super(id);
 	}

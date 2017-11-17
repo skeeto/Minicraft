@@ -7,7 +7,7 @@ import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Screen;
 import ac.novel.common.level.Level;
 
-public class HoleTile extends Tile implements Serializable {
+public class HoleTile extends Tile {
 	public HoleTile(int id) {
 		super(id);
 		connectsToSand = true;

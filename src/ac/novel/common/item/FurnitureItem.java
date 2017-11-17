@@ -11,7 +11,7 @@ import ac.novel.common.gfx.Screen;
 import ac.novel.common.level.Level;
 import ac.novel.common.level.tile.Tile;
 
-public class FurnitureItem extends Item implements Serializable {
+public class FurnitureItem extends Item {
 	public Furniture furniture;
 	public boolean placed = false;
 

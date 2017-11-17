@@ -7,7 +7,7 @@ import ac.novel.common.gfx.Screen;
 import ac.novel.common.item.Item;
 import ac.novel.common.sound.Sound;
 
-public class ItemEntity extends Entity implements Serializable {
+public class ItemEntity extends Entity {
 	private int lifeTime;
 	protected int walkDist = 0;
 	protected int dir = 0;

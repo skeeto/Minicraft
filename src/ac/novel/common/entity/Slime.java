@@ -7,7 +7,7 @@ import ac.novel.common.gfx.Screen;
 import ac.novel.common.item.ResourceItem;
 import ac.novel.common.item.resource.Resource;
 
-public class Slime extends Mob implements Serializable {
+public class Slime extends Mob {
 	private int xa, ya;
 	private int jumpTime = 0;
 	private int lvl;

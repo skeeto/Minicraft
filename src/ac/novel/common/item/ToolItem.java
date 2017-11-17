@@ -9,7 +9,7 @@ import ac.novel.common.gfx.Screen;
 import java.io.Serializable;
 import java.util.Random;
 
-public class ToolItem extends Item implements Serializable {
+public class ToolItem extends Item {
 	private Random random = new Random();
 
 	public static final int MAX_LEVEL = 5;

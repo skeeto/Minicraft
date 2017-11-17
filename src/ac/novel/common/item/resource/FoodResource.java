@@ -6,7 +6,7 @@ import ac.novel.common.entity.Player;
 import ac.novel.common.level.Level;
 import ac.novel.common.level.tile.Tile;
 
-public class FoodResource extends Resource implements Serializable {
+public class FoodResource extends Resource {
 	private int heal;
 	private int staminaCost;
 

@@ -11,7 +11,7 @@ import ac.novel.common.item.ToolItem;
 import ac.novel.common.item.ToolType;
 import ac.novel.common.level.Level;
 
-public class FarmTile extends Tile implements Serializable {
+public class FarmTile extends Tile {
 	public FarmTile(int id) {
 		super(id);
 	}

@@ -8,7 +8,7 @@ import ac.novel.common.level.Level;
 import ac.novel.common.level.tile.Tile;
 import ac.novel.common.sound.Sound;
 
-public class Mob extends Entity implements Serializable {
+public class Mob extends Entity {
 	protected int walkDist = 0;
 	protected int dir = 0;
 	public int hurtTime = 0;

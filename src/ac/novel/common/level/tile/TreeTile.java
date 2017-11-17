@@ -17,7 +17,7 @@ import ac.novel.common.item.ToolType;
 import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
-public class TreeTile extends Tile implements Serializable {
+public class TreeTile extends Tile {
 	public TreeTile(int id) {
 		super(id);
 		connectsToGrass = true;

@@ -9,7 +9,7 @@ import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Font;
 import ac.novel.common.gfx.Screen;
 
-public class PowerGloveItem extends Item implements Serializable {
+public class PowerGloveItem extends Item {
 	public int getColor() {
 		return Color.get(-1, 100, 320, 430);
 	}

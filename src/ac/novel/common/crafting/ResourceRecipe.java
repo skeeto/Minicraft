@@ -6,7 +6,7 @@ import ac.novel.common.entity.Player;
 import ac.novel.common.item.ResourceItem;
 import ac.novel.common.item.resource.Resource;
 
-public class ResourceRecipe extends Recipe implements Serializable {
+public class ResourceRecipe extends Recipe {
 	private Resource resource;
 
 	public ResourceRecipe(Resource resource) {

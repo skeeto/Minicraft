@@ -6,7 +6,7 @@ import ac.novel.common.gfx.Screen;
 import ac.novel.common.item.FurnitureItem;
 import ac.novel.common.item.PowerGloveItem;
 
-public class Furniture extends Entity implements Serializable {
+public class Furniture extends Entity {
 	private int pushTime = 0;
 	private int pushDir = -1;
 	public int col, sprite;

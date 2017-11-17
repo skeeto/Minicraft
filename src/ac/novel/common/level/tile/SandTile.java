@@ -15,7 +15,7 @@ import ac.novel.common.item.ToolType;
 import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
-public class SandTile extends Tile implements Serializable {
+public class SandTile extends Tile {
 	public SandTile(int id) {
 		super(id);
 		connectsToSand = true;

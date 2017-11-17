@@ -6,7 +6,7 @@ import ac.novel.common.crafting.Crafting;
 import ac.novel.common.gfx.Color;
 import ac.novel.common.screen.CraftingMenu;
 
-public class Workbench extends Furniture implements Serializable {
+public class Workbench extends Furniture {
 	public Workbench() {
 		super("Workbench");
 		col = Color.get(-1, 100, 321, 431);

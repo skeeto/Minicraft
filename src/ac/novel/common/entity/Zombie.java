@@ -7,7 +7,7 @@ import ac.novel.common.gfx.Screen;
 import ac.novel.common.item.ResourceItem;
 import ac.novel.common.item.resource.Resource;
 
-public class Zombie extends Mob implements Serializable {
+public class Zombie extends Mob {
 	private int xa, ya;
 	private int lvl;
 	private int randomWalkTime = 0;

@@ -14,7 +14,7 @@ import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 import ac.novel.common.sound.Sound;
 
-public class GrassTile extends Tile implements Serializable {
+public class GrassTile extends Tile {
 	public GrassTile(int id) {
 		super(id);
 		connectsToGrass = true;

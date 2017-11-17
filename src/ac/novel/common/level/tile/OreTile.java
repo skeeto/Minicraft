@@ -17,7 +17,7 @@ import ac.novel.common.item.ToolType;
 import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
-public class OreTile extends Tile implements Serializable {
+public class OreTile extends Tile {
 	private Resource toDrop;
 	private int color;
 

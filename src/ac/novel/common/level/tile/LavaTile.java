@@ -8,7 +8,7 @@ import ac.novel.common.level.Level;
 import java.io.Serializable;
 import java.util.Random;
 
-public class LavaTile extends Tile implements Serializable {
+public class LavaTile extends Tile {
 	public LavaTile(int id) {
 		super(id);
 		connectsToSand = true;

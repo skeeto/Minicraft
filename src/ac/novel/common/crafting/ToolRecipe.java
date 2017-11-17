@@ -6,7 +6,7 @@ import ac.novel.common.entity.Player;
 import ac.novel.common.item.ToolItem;
 import ac.novel.common.item.ToolType;
 
-public class ToolRecipe extends Recipe implements Serializable {
+public class ToolRecipe extends Recipe {
 	private ToolType type;
 	private int level;
 

@@ -6,7 +6,7 @@ import ac.novel.common.gfx.Screen;
 import java.io.Serializable;
 import java.util.List;
 
-public class Spark extends Entity implements Serializable {
+public class Spark extends Entity {
 	private int lifeTime;
 	public double xa, ya;
 	public double xx, yy;

@@ -15,7 +15,7 @@ import ac.novel.common.item.ToolItem;
 import ac.novel.common.item.ToolType;
 import ac.novel.common.level.Level;
 
-public class CloudCactusTile extends Tile implements Serializable {
+public class CloudCactusTile extends Tile {
 	public CloudCactusTile(int id) {
 		super(id);
 	}

@@ -14,7 +14,7 @@ import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 import ac.novel.common.sound.Sound;
 
-public class DirtTile extends Tile implements Serializable {
+public class DirtTile extends Tile {
 	public DirtTile(int id) {
 		super(id);
 	}

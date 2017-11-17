@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
-public class PlantableResource extends Resource implements Serializable {
+public class PlantableResource extends Resource {
 	private List<Tile> sourceTiles;
 	private Tile targetTile;
 

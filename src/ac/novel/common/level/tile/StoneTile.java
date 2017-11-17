@@ -7,7 +7,7 @@ import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Screen;
 import ac.novel.common.level.Level;
 
-public class StoneTile extends Tile implements Serializable {
+public class StoneTile extends Tile {
 	public StoneTile(int id) {
 		super(id);
 	}

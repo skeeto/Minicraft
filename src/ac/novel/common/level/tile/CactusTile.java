@@ -13,7 +13,7 @@ import ac.novel.common.item.ResourceItem;
 import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
-public class CactusTile extends Tile implements Serializable {
+public class CactusTile extends Tile {
 	public CactusTile(int id) {
 		super(id);
 		connectsToSand = true;

@@ -6,7 +6,7 @@ import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Screen;
 import ac.novel.common.sound.Sound;
 
-public class AirWizard extends Mob implements Serializable {
+public class AirWizard extends Mob {
 	private int xa, ya;
 	private int randomWalkTime = 0;
 	private int attackDelay = 0;

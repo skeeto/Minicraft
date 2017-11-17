@@ -7,7 +7,7 @@ import ac.novel.common.entity.Entity;
 import ac.novel.common.gfx.Screen;
 import ac.novel.common.level.Level;
 
-public class InfiniteFallTile extends Tile implements Serializable {
+public class InfiniteFallTile extends Tile {
 	public InfiniteFallTile(int id) {
 		super(id);
 	}

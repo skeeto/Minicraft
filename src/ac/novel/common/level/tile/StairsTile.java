@@ -6,7 +6,7 @@ import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Screen;
 import ac.novel.common.level.Level;
 
-public class StairsTile extends Tile implements Serializable {
+public class StairsTile extends Tile {
 	private boolean leadsUp;
 
 	public StairsTile(int id, boolean leadsUp) {

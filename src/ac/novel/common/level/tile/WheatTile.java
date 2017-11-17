@@ -15,7 +15,7 @@ import ac.novel.common.item.ToolType;
 import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
-public class WheatTile extends Tile implements Serializable {
+public class WheatTile extends Tile {
 	public WheatTile(int id) {
 		super(id);
 	}

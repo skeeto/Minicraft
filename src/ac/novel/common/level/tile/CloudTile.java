@@ -14,7 +14,7 @@ import ac.novel.common.item.ToolType;
 import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
-public class CloudTile extends Tile implements Serializable {
+public class CloudTile extends Tile {
 	public CloudTile(int id) {
 		super(id);
 	}

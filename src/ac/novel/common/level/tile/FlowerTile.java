@@ -14,7 +14,7 @@ import ac.novel.common.item.ToolType;
 import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
-public class FlowerTile extends GrassTile implements Serializable {
+public class FlowerTile extends GrassTile {
 	public FlowerTile(int id) {
 		super(id);
 		tiles[id] = this;

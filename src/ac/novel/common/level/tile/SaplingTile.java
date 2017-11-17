@@ -7,7 +7,7 @@ import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Screen;
 import ac.novel.common.level.Level;
 
-public class SaplingTile extends Tile implements Serializable {
+public class SaplingTile extends Tile {
 	private Tile onType;
 	private Tile growsTo;
 
