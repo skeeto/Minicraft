@@ -17,10 +17,10 @@ import java.util.List;
 
 public class Player extends Mob implements Cloneable {
     private static final long serialVersionUID = 42L;
-	private InputHandler input;
+	private transient InputHandler input;
 	private int attackTime, attackDir;
 
-	public Game game;
+	public transient Game game;
 	public Inventory inventory = new Inventory();
 	public Item attackItem;
 	public Item activeItem;

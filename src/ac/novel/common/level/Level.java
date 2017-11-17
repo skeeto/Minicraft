@@ -28,13 +28,12 @@ public class Level implements Serializable {
 	public int monsterDensity = 8;
 
 	public List<Entity> entities = new ArrayList<Entity>();
-	private Comparator<Entity> spriteSorter = new Comparator<Entity>() {
+	private static Comparator<Entity> spriteSorter = new Comparator<Entity>() {
 		public int compare(Entity e0, Entity e1) {
 			if (e1.y < e0.y) return +1;
 			if (e1.y > e0.y) return -1;
 			return 0;
 		}
-
 	};
 
 	@SuppressWarnings("unchecked")

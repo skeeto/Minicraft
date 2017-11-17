@@ -12,6 +12,7 @@ import ac.novel.common.level.Level;
 import ac.novel.common.level.tile.Tile;
 
 public class FurnitureItem extends Item {
+    private static final long serialVersionUID = 42L;
 	public Furniture furniture;
 	public boolean placed = false;
 
