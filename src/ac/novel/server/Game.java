@@ -33,20 +33,19 @@ public class Game extends ac.novel.common.Game {
 
         try {
             game.start();
-            InputHandlerInterface obj = new InputHandler();
 //            SaveInterface saveObj = new Save();
 //            InitInterface initObj = new Init();
             SaveInterface saveObj = new GetSave(game);
-            
+
             int port = 1234;
             // Bind the remote object's stub in the registry
             // Naming.rebind("rmi://localhost:" + port + "/InputHandler", obj);
 
-            InputHandlerInterface stub = (InputHandlerInterface) UnicastRemoteObject.exportObject(obj, port);
+
 //            SaveInterface saveStub = (SaveInterface) UnicastRemoteObject.exportObject(saveObj, port);
 //            InitInterface initStub = (InitInterface) UnicastRemoteObject.exportObject(initObj, port);
             SaveInterface saveStub = (SaveInterface) UnicastRemoteObject.exportObject(saveObj, port);
-            
+            InputHandlerInterface stub = (InputHandlerInterface) UnicastRemoteObject.exportObject(game.input, port);
             Registry reg = LocateRegistry.createRegistry(port);
             System.err.println("Server is ready from main");
             

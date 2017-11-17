@@ -7,17 +7,27 @@ import java.util.List;
 
 public class InputHandler implements KeyListener, InputHandlerInterface {
 	public class Key {
-		public int presses, absorbs;
+		public int presses, absorbs, clients;
 		public boolean down, clicked;
 
 		public Key() {
 			keys.add(this);
 		}
 
+        public void clientToggle(boolean pressed) {
+            if (pressed) {
+                clients++;
+            } else {
+                clients--;
+            }
+
+            assert(clients >= 0);
+
+            toggle(pressed);
+        }
+
 		public void toggle(boolean pressed) {
-			if (pressed != down) {
-				down = pressed;
-			}
+            down = (clients > 0);
 			if (pressed) {
 				presses++;
 			}
@@ -57,37 +67,59 @@ public class InputHandler implements KeyListener, InputHandlerInterface {
 	public InputHandler(){}
 
 	public void keyPressed(int keyCode) {
-		System.out.println("keypressed on server");
+		clientToggle(keyCode, true);
+	}
+
+	public void keyDown(int keyCode) {
 		toggle(keyCode, true);
+	}
+
+	public void keyReleased(int keyCode) {
+		clientToggle(keyCode, false);
 	}
 
 	public void keyReleased(KeyEvent ke) {
 		toggle(ke.getKeyCode(), false);
 	}
 
+	private Key getKey(int keyCode) {
+		if (keyCode == KeyEvent.VK_NUMPAD8) return up;
+		if (keyCode == KeyEvent.VK_NUMPAD2) return down;
+		if (keyCode == KeyEvent.VK_NUMPAD4) return left;
+		if (keyCode == KeyEvent.VK_NUMPAD6) return right;
+		if (keyCode == KeyEvent.VK_W) return up;
+		if (keyCode == KeyEvent.VK_S) return down;
+		if (keyCode == KeyEvent.VK_A) return left;
+		if (keyCode == KeyEvent.VK_D) return right;
+		if (keyCode == KeyEvent.VK_UP) return up;
+		if (keyCode == KeyEvent.VK_DOWN) return down;
+		if (keyCode == KeyEvent.VK_LEFT) return left;
+		if (keyCode == KeyEvent.VK_RIGHT) return right;
+		if (keyCode == KeyEvent.VK_TAB) return menu;
+		if (keyCode == KeyEvent.VK_ALT) return menu;
+		if (keyCode == KeyEvent.VK_ALT_GRAPH) return menu;
+		if (keyCode == KeyEvent.VK_SPACE) return attack;
+		if (keyCode == KeyEvent.VK_CONTROL) return attack;
+		if (keyCode == KeyEvent.VK_NUMPAD0) return attack;
+		if (keyCode == KeyEvent.VK_INSERT) return attack;
+		if (keyCode == KeyEvent.VK_ENTER) return menu;
+		if (keyCode == KeyEvent.VK_X) return menu;
+		if (keyCode == KeyEvent.VK_C) return attack;
+        return null;
+	}
+
 	private void toggle(int keyCode, boolean pressed) {
-		if (keyCode == KeyEvent.VK_NUMPAD8) up.toggle(pressed);
-		if (keyCode == KeyEvent.VK_NUMPAD2) down.toggle(pressed);
-		if (keyCode == KeyEvent.VK_NUMPAD4) left.toggle(pressed);
-		if (keyCode == KeyEvent.VK_NUMPAD6) right.toggle(pressed);
-		if (keyCode == KeyEvent.VK_W) up.toggle(pressed);
-		if (keyCode == KeyEvent.VK_S) down.toggle(pressed);
-		if (keyCode == KeyEvent.VK_A) left.toggle(pressed);
-		if (keyCode == KeyEvent.VK_D) right.toggle(pressed);
-		if (keyCode == KeyEvent.VK_UP) up.toggle(pressed);
-		if (keyCode == KeyEvent.VK_DOWN) down.toggle(pressed);
-		if (keyCode == KeyEvent.VK_LEFT) left.toggle(pressed);
-		if (keyCode == KeyEvent.VK_RIGHT) right.toggle(pressed);
-		if (keyCode == KeyEvent.VK_TAB) menu.toggle(pressed);
-		if (keyCode == KeyEvent.VK_ALT) menu.toggle(pressed);
-		if (keyCode == KeyEvent.VK_ALT_GRAPH) menu.toggle(pressed);
-		if (keyCode == KeyEvent.VK_SPACE) attack.toggle(pressed);
-		if (keyCode == KeyEvent.VK_CONTROL) attack.toggle(pressed);
-		if (keyCode == KeyEvent.VK_NUMPAD0) attack.toggle(pressed);
-		if (keyCode == KeyEvent.VK_INSERT) attack.toggle(pressed);
-		if (keyCode == KeyEvent.VK_ENTER) menu.toggle(pressed);
-		if (keyCode == KeyEvent.VK_X) menu.toggle(pressed);
-		if (keyCode == KeyEvent.VK_C) attack.toggle(pressed);
+        Key key = getKey(keyCode);
+        if (key != null) {
+            key.toggle(pressed);
+        }
+	}
+
+	private void clientToggle(int keyCode, boolean pressed) {
+        Key key = getKey(keyCode);
+        if (key != null) {
+            key.clientToggle(pressed);
+        }
 	}
 
 	public void keyTyped(KeyEvent ke) {

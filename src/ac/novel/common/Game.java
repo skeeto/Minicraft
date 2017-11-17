@@ -162,7 +162,7 @@ public abstract class Game extends Canvas implements Runnable {
 
 	public void tick() {
 		tickCount++;
-		if (!hasFocus()) {
+		if (false) {
 			input.releaseAll();
 		} else {
 			if (!player.removed && !hasWon) gameTime++;
@@ -240,7 +240,7 @@ public abstract class Game extends Canvas implements Runnable {
 
 		renderGui();
 
-		if (!hasFocus()) renderFocusNagger();
+		//if (!hasFocus()) renderFocusNagger();
 
 		for (int y = 0; y < Screen.h; y++) {
 			for (int x = 0; x < Screen.w; x++) {
