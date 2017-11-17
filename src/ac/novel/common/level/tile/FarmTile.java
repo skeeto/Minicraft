@@ -12,6 +12,7 @@ import ac.novel.common.item.ToolType;
 import ac.novel.common.level.Level;
 
 public class FarmTile extends Tile {
+    private static final long serialVersionUID = 42L;
 	public FarmTile(int id) {
 		super(id);
 	}

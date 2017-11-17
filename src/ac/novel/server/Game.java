@@ -12,6 +12,7 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 public class Game extends ac.novel.common.Game {
+	protected static final long serialVersionUID = 2L;
 
     static final String NAME = "Minicraft Server";
 

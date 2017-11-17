@@ -15,6 +15,7 @@ import ac.novel.common.level.Level;
 import ac.novel.common.sound.Sound;
 
 public class DirtTile extends Tile {
+    private static final long serialVersionUID = 42L;
 	public DirtTile(int id) {
 		super(id);
 	}

@@ -6,6 +6,7 @@ import ac.novel.common.gfx.Screen;
 import ac.novel.common.sound.Sound;
 
 public class SmashParticle extends Entity {
+    private static final long serialVersionUID = 42L;
 	private int time = 0;
 
 	public SmashParticle(int x, int y) {

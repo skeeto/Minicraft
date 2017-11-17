@@ -7,6 +7,7 @@ import ac.novel.common.gfx.Screen;
 import ac.novel.common.level.Level;
 
 public class StairsTile extends Tile {
+    private static final long serialVersionUID = 42L;
 	private boolean leadsUp;
 
 	public StairsTile(int id, boolean leadsUp) {

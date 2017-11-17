@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.util.Random;
 
 public class Tile implements Serializable {
+    private static final long serialVersionUID = 123L;
 	public static int tickCount = 0;
 	protected Random random = new Random();
 

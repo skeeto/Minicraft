@@ -18,6 +18,7 @@ import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
 public class TreeTile extends Tile {
+    private static final long serialVersionUID = 42L;
 	public TreeTile(int id) {
 		super(id);
 		connectsToGrass = true;

@@ -12,6 +12,7 @@ import ac.novel.common.level.Level;
 import ac.novel.common.level.tile.Tile;
 
 public class ResourceItem extends Item implements Serializable {
+    private static final long serialVersionUID = 123L;
 	public Resource resource;
 	public int count = 1;
 

@@ -7,6 +7,7 @@ import ac.novel.common.gfx.Color;
 import ac.novel.common.screen.CraftingMenu;
 
 public class Anvil extends Furniture {
+    private static final long serialVersionUID = 42L;
 	public Anvil() {
 		super("Anvil");
 		col = Color.get(-1, 000, 111, 222);

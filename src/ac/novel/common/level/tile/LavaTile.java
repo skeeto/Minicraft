@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Random;
 
 public class LavaTile extends Tile {
+    private static final long serialVersionUID = 42L;
 	public LavaTile(int id) {
 		super(id);
 		connectsToSand = true;

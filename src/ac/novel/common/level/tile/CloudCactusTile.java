@@ -16,6 +16,7 @@ import ac.novel.common.item.ToolType;
 import ac.novel.common.level.Level;
 
 public class CloudCactusTile extends Tile {
+    private static final long serialVersionUID = 42L;
 	public CloudCactusTile(int id) {
 		super(id);
 	}

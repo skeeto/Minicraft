@@ -9,6 +9,7 @@ import ac.novel.common.level.tile.Tile;
 import ac.novel.common.sound.Sound;
 
 public class Mob extends Entity {
+    private static final long serialVersionUID = 42L;
 	protected int walkDist = 0;
 	protected int dir = 0;
 	public int hurtTime = 0;

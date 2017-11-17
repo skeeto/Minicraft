@@ -3,6 +3,7 @@ package ac.novel.common.gfx;
 import java.io.Serializable;
 
 public class Color implements Serializable {
+    private static final long serialVersionUID = 123L;
 	
 	public static final int WHITE = Color.get(-1, 555);
 	public static final int GRAY = Color.get(-1, 333);

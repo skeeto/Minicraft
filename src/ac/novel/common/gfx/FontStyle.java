@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 	
 public class FontStyle implements Serializable {
+    private static final long serialVersionUID = 123L;
 		/*
 		draw needs some parameters...
 		CENTERED or no - and can be screen, or given bounds

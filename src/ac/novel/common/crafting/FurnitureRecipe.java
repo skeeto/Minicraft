@@ -7,6 +7,7 @@ import ac.novel.common.entity.Player;
 import ac.novel.common.item.FurnitureItem;
 
 public class FurnitureRecipe extends Recipe {
+    private static final long serialVersionUID = 42L;
 	private Class<? extends Furniture> clazz;
 
 	public FurnitureRecipe(Class<? extends Furniture> clazz) throws InstantiationException, IllegalAccessException {

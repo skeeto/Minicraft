@@ -6,6 +6,7 @@ import ac.novel.common.gfx.Font;
 import ac.novel.common.gfx.Screen;
 
 public class TextParticle extends Entity {
+    private static final long serialVersionUID = 42L;
 	private String msg;
 	private int col;
 	private int time = 0;

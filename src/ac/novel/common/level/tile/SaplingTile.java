@@ -8,6 +8,7 @@ import ac.novel.common.gfx.Screen;
 import ac.novel.common.level.Level;
 
 public class SaplingTile extends Tile {
+    private static final long serialVersionUID = 42L;
 	private Tile onType;
 	private Tile growsTo;
 

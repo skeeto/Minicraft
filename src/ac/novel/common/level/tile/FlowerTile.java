@@ -15,6 +15,7 @@ import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
 public class FlowerTile extends GrassTile {
+    private static final long serialVersionUID = 42L;
 	public FlowerTile(int id) {
 		super(id);
 		tiles[id] = this;

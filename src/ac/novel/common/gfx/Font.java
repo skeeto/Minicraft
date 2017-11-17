@@ -3,6 +3,7 @@ package ac.novel.common.gfx;
 import java.io.Serializable;
 
 public class Font implements Serializable {
+    private static final long serialVersionUID = 123L;
 	
 	private static String chars = "" + //
 			"ABCDEFGHIJKLMNOPQRSTUVWXYZ      " + //

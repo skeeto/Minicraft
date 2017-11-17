@@ -8,6 +8,7 @@ import ac.novel.common.item.ResourceItem;
 import ac.novel.common.item.resource.Resource;
 
 public class Zombie extends Mob {
+    private static final long serialVersionUID = 42L;
 	private int xa, ya;
 	private int lvl;
 	private int randomWalkTime = 0;

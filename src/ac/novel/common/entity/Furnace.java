@@ -7,6 +7,7 @@ import ac.novel.common.gfx.Color;
 import ac.novel.common.screen.CraftingMenu;
 
 public class Furnace extends Furniture {
+    private static final long serialVersionUID = 42L;
 	public Furnace() {
 		super("Furnace");
 		col = Color.get(-1, 000, 222, 333);

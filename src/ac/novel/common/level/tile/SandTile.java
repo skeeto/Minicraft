@@ -16,6 +16,7 @@ import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
 public class SandTile extends Tile {
+    private static final long serialVersionUID = 42L;
 	public SandTile(int id) {
 		super(id);
 		connectsToSand = true;

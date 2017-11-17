@@ -8,6 +8,7 @@ import ac.novel.common.gfx.Screen;
 import ac.novel.common.level.Level;
 
 public class StoneTile extends Tile {
+    private static final long serialVersionUID = 42L;
 	public StoneTile(int id) {
 		super(id);
 	}

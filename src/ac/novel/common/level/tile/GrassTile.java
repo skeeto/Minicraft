@@ -15,6 +15,7 @@ import ac.novel.common.level.Level;
 import ac.novel.common.sound.Sound;
 
 public class GrassTile extends Tile {
+    private static final long serialVersionUID = 42L;
 	public GrassTile(int id) {
 		super(id);
 		connectsToGrass = true;

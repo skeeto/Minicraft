@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PlantableResource extends Resource {
+    private static final long serialVersionUID = 42L;
 	private List<Tile> sourceTiles;
 	private Tile targetTile;
 

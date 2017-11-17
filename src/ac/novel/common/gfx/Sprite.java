@@ -3,6 +3,7 @@ package ac.novel.common.gfx;
 import java.io.Serializable;
 
 public class Sprite implements Serializable {
+    private static final long serialVersionUID = 123L;
 	public int x, y;
 	public int img;
 	public int col;

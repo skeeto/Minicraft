@@ -7,6 +7,7 @@ import ac.novel.common.item.ToolItem;
 import ac.novel.common.item.ToolType;
 
 public class ToolRecipe extends Recipe {
+    private static final long serialVersionUID = 42L;
 	private ToolType type;
 	private int level;
 

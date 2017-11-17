@@ -7,6 +7,7 @@ import ac.novel.common.item.FurnitureItem;
 import ac.novel.common.item.PowerGloveItem;
 
 public class Furniture extends Entity {
+    private static final long serialVersionUID = 42L;
 	private int pushTime = 0;
 	private int pushDir = -1;
 	public int col, sprite;

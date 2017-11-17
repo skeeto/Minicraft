@@ -14,6 +14,7 @@ import java.rmi.registry.Registry;
 import java.util.ArrayList;
 
 public class Game extends ac.novel.common.Game {
+	protected static final long serialVersionUID = 3L;
 
     public void start(InputHandlerInterface inputHandlerServerInterface) {
         running = true;

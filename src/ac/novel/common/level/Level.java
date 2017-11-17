@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.*;
 
 public class Level implements Serializable {
+    private static final long serialVersionUID = 123L;
 	/**
 	 * 
 	 */

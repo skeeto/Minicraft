@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Random;
 
 public class WaterTile extends Tile implements Serializable {
+    private static final long serialVersionUID = 42L;
 	public WaterTile(int id) {
 		super(id);
 		connectsToSand = true;

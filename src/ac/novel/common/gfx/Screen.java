@@ -3,6 +3,7 @@ package ac.novel.common.gfx;
 import java.io.Serializable;
 
 public class Screen implements Serializable {
+    private static final long serialVersionUID = 123L;
 	/*
 	 * public static final int MAP_WIDTH = 64; // Must be 2^x public static final int MAP_WIDTH_MASK = MAP_WIDTH - 1;
 	 * 

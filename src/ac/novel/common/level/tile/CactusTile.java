@@ -14,6 +14,7 @@ import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
 public class CactusTile extends Tile {
+    private static final long serialVersionUID = 42L;
 	public CactusTile(int id) {
 		super(id);
 		connectsToSand = true;

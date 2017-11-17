@@ -13,6 +13,7 @@ public class Entity implements Serializable {
 	/**
 	 * 
 	 */
+    private static final long serialVersionUID = 123L;
 	protected final Random random = new Random();
 	public int x, y;
 	public int xr = 6;

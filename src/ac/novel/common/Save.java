@@ -7,6 +7,7 @@ import ac.novel.common.level.Level;
 import ac.novel.server.Game;
 
 public class Save implements Serializable {
+    private static final long serialVersionUID = 123L;
 	
 	public Player player;
 	public int gameTime;
