@@ -215,12 +215,12 @@ public abstract class Game extends Canvas implements Runnable {
 			return;
 		}
 
-		int xScroll = player.x - Screen.w / 2;
-		int yScroll = player.y - (Screen.h - 8) / 2;
+		int xScroll = player.x - screen.w / 2;
+		int yScroll = player.y - (screen.h - 8) / 2;
 		if (xScroll < 16) xScroll = 16;
 		if (yScroll < 16) yScroll = 16;
-		if (xScroll > level.w * 16 - Screen.w - 16) xScroll = level.w * 16 - Screen.w - 16;
-		if (yScroll > level.h * 16 - Screen.h - 16) yScroll = level.h * 16 - Screen.h - 16;
+		if (xScroll > level.w * 16 - screen.w - 16) xScroll = level.w * 16 - screen.w - 16;
+		if (yScroll > level.h * 16 - screen.h - 16) yScroll = level.h * 16 - screen.h - 16;
 		if (currentLevel > 3) {
 			int col = Color.get(20, 20, 121, 121);
 			for (int y = 0; y < 14; y++)
@@ -242,9 +242,9 @@ public abstract class Game extends Canvas implements Runnable {
 
 		//if (!hasFocus()) renderFocusNagger();
 
-		for (int y = 0; y < Screen.h; y++) {
-			for (int x = 0; x < Screen.w; x++) {
-				int cc = screen.pixels[x + y * Screen.w];
+		for (int y = 0; y < screen.h; y++) {
+			for (int x = 0; x < screen.w; x++) {
+				int cc = screen.pixels[x + y * screen.w];
 				if (cc < 255) pixels[x + y * WIDTH] = colors[cc];
 			}
 		}
@@ -264,30 +264,30 @@ public abstract class Game extends Canvas implements Runnable {
 	private void renderGui() {
 		for (int y = 0; y < 2; y++) {
 			for (int x = 0; x < 20; x++) {
-				screen.render(x * 8, Screen.h - 16 + y * 8, 0 + 12 * 32, Color.get(000, 000, 000, 000), 0);
+				screen.render(x * 8, screen.h - 16 + y * 8, 0 + 12 * 32, Color.get(000, 000, 000, 000), 0);
 			}
 		}
 
 		for (int i = 0; i < 10; i++) {
 			if (i < player.health)
-				screen.render(i * 8, Screen.h - 16, 0 + 12 * 32, Color.get(000, 200, 500, 533), 0);
+				screen.render(i * 8, screen.h - 16, 0 + 12 * 32, Color.get(000, 200, 500, 533), 0);
 			else
-				screen.render(i * 8, Screen.h - 16, 0 + 12 * 32, Color.get(000, 100, 000, 000), 0);
+				screen.render(i * 8, screen.h - 16, 0 + 12 * 32, Color.get(000, 100, 000, 000), 0);
 
 			if (player.staminaRechargeDelay > 0) {
 				if (player.staminaRechargeDelay / 4 % 2 == 0)
-					screen.render(i * 8, Screen.h - 8, 1 + 12 * 32, Color.get(000, 555, 000, 000), 0);
+					screen.render(i * 8, screen.h - 8, 1 + 12 * 32, Color.get(000, 555, 000, 000), 0);
 				else
-					screen.render(i * 8, Screen.h - 8, 1 + 12 * 32, Color.get(000, 110, 000, 000), 0);
+					screen.render(i * 8, screen.h - 8, 1 + 12 * 32, Color.get(000, 110, 000, 000), 0);
 			} else {
 				if (i < player.stamina)
-					screen.render(i * 8, Screen.h - 8, 1 + 12 * 32, Color.get(000, 220, 550, 553), 0);
+					screen.render(i * 8, screen.h - 8, 1 + 12 * 32, Color.get(000, 220, 550, 553), 0);
 				else
-					screen.render(i * 8, Screen.h - 8, 1 + 12 * 32, Color.get(000, 110, 000, 000), 0);
+					screen.render(i * 8, screen.h - 8, 1 + 12 * 32, Color.get(000, 110, 000, 000), 0);
 			}
 		}
 		if (player.activeItem != null) {
-			player.activeItem.renderInventory(screen, 10 * 8, Screen.h - 16);
+			player.activeItem.renderInventory(screen, 10 * 8, screen.h - 16);
 		}
 
 		if (menu != null) {
