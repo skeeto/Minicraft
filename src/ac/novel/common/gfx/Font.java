@@ -49,7 +49,7 @@ public class Font implements Serializable {
 	}
 	
 	public static void drawCentered(String msg, Screen screen, int y, int color) {
-		new FontStyle(color).setYPos(y).draw(msg, screen);
+//		new FontStyle(color).setYPos(y).draw(msg, screen);
 	}
 	
 	public static int centerX(String msg, int minX, int maxX) {

@@ -17,7 +17,7 @@ import java.util.List;
 
 public class Player extends Mob implements Cloneable {
     private static final long serialVersionUID = 42L;
-	private transient InputHandler input;
+	public transient InputHandler input;
 	private int attackTime, attackDir;
 
 	public transient Game game;

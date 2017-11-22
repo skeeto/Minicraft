@@ -89,7 +89,7 @@ public abstract class Game extends Canvas implements Runnable {
 		}
 	}
 
-	private void init() {
+	protected void init() {
 		int pp = 0;
 		for (int r = 0; r < 6; r++) {
 			for (int g = 0; g < 6; g++) {
@@ -195,6 +195,7 @@ public abstract class Game extends Canvas implements Runnable {
 			//Save save = new Save(player, screen, lightscreen, level, menu);
 			
 		}
+		System.err.println(player.x + " " + player.y);
 	}
 
 	public void changeLevel(int dir) {
