@@ -191,11 +191,6 @@ public abstract class Game extends Canvas implements Runnable {
 				Tile.tickCount++;
 			}
 		}
-		if (input.menu.clicked) {
-			//Save save = new Save(player, screen, lightscreen, level, menu);
-			
-		}
-		System.err.println(player.x + " " + player.y);
 	}
 
 	public void changeLevel(int dir) {

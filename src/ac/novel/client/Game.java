@@ -84,10 +84,8 @@ public class Game extends ac.novel.common.Game {
             InputHandlerInterface stub = (InputHandlerInterface) registry.lookup("InputHandler");
             InputHandlerClient inputHandlerClient = new InputHandlerClient(stub);
             System.err.println("Client got remote InputHandler");
-//            InitInterface initStub = (InitInterface) registry.lookup("Init");
             SaveInterface saveStub = (SaveInterface) registry.lookup("GetSave");
-//            ArrayList<String> savedState = initStub.getSavedState();
-            
+
             Save savedGame = saveStub.getSave();
             game.playerDeadTime = 0;
             game.wonTimer = 0;
@@ -101,15 +99,12 @@ public class Game extends ac.novel.common.Game {
             game.player = savedGame.player;
             game.player.game = game;
             game.player.input = inputHandlerClient;
-            
+
             game.start(inputHandlerClient);
-//            game.player.findStartPos(game.level);
             game.setMenu(null);
 
             System.err.println("Client got remote saved game");
-            System.err.println(String.format("Save dump: %d %d %d", savedGame.currentLevel, savedGame.player.x, savedGame.player.y));
             System.err.println("Game Started");
-            System.err.println(game.player.x + " " + game.player);
         } catch (NotBoundException e) {
             e.printStackTrace();
         } catch (RemoteException e) {

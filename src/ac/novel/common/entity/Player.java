@@ -42,18 +42,6 @@ public class Player extends Mob implements Cloneable {
 		inventory.add(new FurnitureItem(new Workbench()));
 		inventory.add(new PowerGloveItem());
 	}
-	
-	public Player getPlayer() {
-		Player player = null;
-		try {
-			player = (Player) this.clone();
-			player.game = null;
-			player.input = null;
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-		}
-		return player;
-	}
 
 	public void tick() {
 		super.tick();
