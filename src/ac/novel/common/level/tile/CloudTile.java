@@ -1,5 +1,7 @@
 package ac.novel.common.level.tile;
 
+import java.io.Serializable;
+
 import ac.novel.common.entity.Entity;
 import ac.novel.common.entity.ItemEntity;
 import ac.novel.common.entity.Player;
@@ -13,6 +15,7 @@ import ac.novel.common.item.resource.Resource;
 import ac.novel.common.level.Level;
 
 public class CloudTile extends Tile {
+    private static final long serialVersionUID = 42L;
 	public CloudTile(int id) {
 		super(id);
 	}

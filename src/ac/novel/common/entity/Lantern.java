@@ -1,8 +1,11 @@
 package ac.novel.common.entity;
 
+import java.io.Serializable;
+
 import ac.novel.common.gfx.Color;
 
 public class Lantern extends Furniture {
+    private static final long serialVersionUID = 42L;
 	public Lantern() {
 		super("Lantern");
 		col = Color.get(-1, 000, 111, 555);

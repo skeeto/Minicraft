@@ -15,11 +15,12 @@ import ac.novel.common.sound.Sound;
 
 import java.util.List;
 
-public class Player extends Mob {
-	private InputHandler input;
+public class Player extends Mob implements Cloneable {
+    private static final long serialVersionUID = 42L;
+	public transient InputHandler input;
 	private int attackTime, attackDir;
 
-	public Game game;
+	public transient Game game;
 	public Inventory inventory = new Inventory();
 	public Item attackItem;
 	public Item activeItem;

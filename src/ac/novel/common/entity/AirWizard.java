@@ -1,15 +1,19 @@
 package ac.novel.common.entity;
 
+import java.io.Serializable;
+
 import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Screen;
 import ac.novel.common.sound.Sound;
 
 public class AirWizard extends Mob {
+    private static final long serialVersionUID = 42L;
 	private int xa, ya;
 	private int randomWalkTime = 0;
 	private int attackDelay = 0;
 	private int attackTime = 0;
 	private int attackType = 0;
+	public static boolean beaten = false;
 
 	public AirWizard() {
 		x = random.nextInt(64 * 16);

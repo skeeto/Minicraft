@@ -4,14 +4,24 @@ import ac.novel.common.item.Item;
 import ac.novel.common.item.ResourceItem;
 import ac.novel.common.item.resource.Resource;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Inventory {
+public class Inventory implements Serializable {
+    private static final long serialVersionUID = 123L;
 	public List<Item> items = new ArrayList<Item>();
 
 	public void add(Item item) {
 		add(items.size(), item);
+	}
+	
+	public int invSize() {
+		return items.size();	
+	}
+	
+	public Item get(int idx) {
+		return items.get(idx);
 	}
 
 	public void add(int slot, Item item) {

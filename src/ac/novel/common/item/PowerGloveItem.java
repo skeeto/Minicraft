@@ -1,5 +1,7 @@
 package ac.novel.common.item;
 
+import java.io.Serializable;
+
 import ac.novel.common.entity.Entity;
 import ac.novel.common.entity.Furniture;
 import ac.novel.common.entity.Player;

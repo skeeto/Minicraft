@@ -1,8 +1,10 @@
 package ac.novel.common.gfx;
 
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
-public class SpriteSheet {
+public class SpriteSheet implements Serializable {
+    private static final long serialVersionUID = 123L;
 	public int width, height;
 	public int[] pixels;
 

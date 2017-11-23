@@ -1,11 +1,14 @@
 package ac.novel.common.entity;
 
+import java.io.Serializable;
+
 import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Screen;
 import ac.novel.common.item.Item;
 import ac.novel.common.sound.Sound;
 
 public class ItemEntity extends Entity {
+    private static final long serialVersionUID = 42L;
 	private int lifeTime;
 	protected int walkDist = 0;
 	protected int dir = 0;
@@ -62,6 +65,10 @@ public class ItemEntity extends Entity {
 		if (hurtTime > 0) hurtTime--;
 	}
 
+	public String getData() {
+		return String.join(":", (new String[] {item.getName(), zz+"", lifeTime+"", time+"", xa+"", ya+"", za+""}));
+	}
+	
 	public boolean isBlockableBy(Mob mob) {
 		return false;
 	}

@@ -1,11 +1,14 @@
 package ac.novel.common.level.tile;
 
+import java.io.Serializable;
+
 import ac.novel.common.entity.Mob;
 import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Screen;
 import ac.novel.common.level.Level;
 
 public class SaplingTile extends Tile {
+    private static final long serialVersionUID = 42L;
 	private Tile onType;
 	private Tile growsTo;
 

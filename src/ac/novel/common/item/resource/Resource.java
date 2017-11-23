@@ -1,11 +1,14 @@
 package ac.novel.common.item.resource;
 
+import java.io.Serializable;
+
 import ac.novel.common.entity.Player;
 import ac.novel.common.gfx.Color;
 import ac.novel.common.level.Level;
 import ac.novel.common.level.tile.Tile;
 
-public class Resource {
+public class Resource implements Serializable {
+    private static final long serialVersionUID = 123L;
 	public static Resource wood = new Resource("Wood", 1 + 4 * 32, Color.get(-1, 200, 531, 430));
 	public static Resource stone = new Resource("Stone", 2 + 4 * 32, Color.get(-1, 111, 333, 555));
 	public static Resource flower = new PlantableResource("Flower", 0 + 4 * 32, Color.get(-1, 10, 444, 330), Tile.flower, Tile.grass);

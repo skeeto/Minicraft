@@ -1,11 +1,14 @@
 package ac.novel.common.level.tile;
 
+import java.io.Serializable;
+
 import ac.novel.common.entity.AirWizard;
 import ac.novel.common.entity.Entity;
 import ac.novel.common.gfx.Screen;
 import ac.novel.common.level.Level;
 
 public class InfiniteFallTile extends Tile {
+    private static final long serialVersionUID = 42L;
 	public InfiniteFallTile(int id) {
 		super(id);
 	}

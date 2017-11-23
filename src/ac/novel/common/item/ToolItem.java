@@ -6,6 +6,7 @@ import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Font;
 import ac.novel.common.gfx.Screen;
 
+import java.io.Serializable;
 import java.util.Random;
 
 public class ToolItem extends Item {

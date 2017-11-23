@@ -1,6 +1,9 @@
 package ac.novel.common.item;
 
-public class ToolType {
+import java.io.Serializable;
+
+public class ToolType implements Serializable {
+    private static final long serialVersionUID = 123L;
 	public static ToolType shovel = new ToolType("Shvl", 0);
 	public static ToolType hoe = new ToolType("Hoe", 1);
 	public static ToolType sword = new ToolType("Swrd", 2);

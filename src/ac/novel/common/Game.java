@@ -11,7 +11,6 @@ import ac.novel.common.screen.*;
 import ac.novel.common.screen.Menu;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -35,12 +34,12 @@ public abstract class Game extends Canvas implements Runnable {
 	protected InputHandler input = new InputHandler();
 
 	protected int[] colors = new int[256];
-	protected int tickCount = 0;
+	public int tickCount = 0;
 	public int gameTime = 0;
 
 	protected Level level;
-	protected Level[] levels = new Level[5];
-	protected int currentLevel = 3;
+	public Level[] levels = new Level[5];
+	public int currentLevel = 3;
 	public Player player;
 
 	public Menu menu;
@@ -90,7 +89,7 @@ public abstract class Game extends Canvas implements Runnable {
 		}
 	}
 
-	private void init() {
+	protected void init() {
 		int pp = 0;
 		for (int r = 0; r < 6; r++) {
 			for (int g = 0; g < 6; g++) {
@@ -327,4 +326,5 @@ public abstract class Game extends Canvas implements Runnable {
 		wonTimer = 60 * 3;
 		hasWon = true;
 	}
+	
 }
