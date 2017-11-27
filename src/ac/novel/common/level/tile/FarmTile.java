@@ -1,7 +1,5 @@
 package ac.novel.common.level.tile;
 
-import java.io.Serializable;
-
 import ac.novel.common.entity.Entity;
 import ac.novel.common.entity.Player;
 import ac.novel.common.gfx.Color;
@@ -12,7 +10,6 @@ import ac.novel.common.item.ToolType;
 import ac.novel.common.level.Level;
 
 public class FarmTile extends Tile {
-    private static final long serialVersionUID = 42L;
 	public FarmTile(int id) {
 		super(id);
 	}

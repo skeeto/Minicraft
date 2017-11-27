@@ -9,12 +9,10 @@ import ac.novel.common.item.ResourceItem;
 import ac.novel.common.item.resource.Resource;
 import ac.novel.common.screen.ListItem;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Recipe implements ListItem, Serializable {
-    private static final long serialVersionUID = 42L;
+public abstract class Recipe implements ListItem {
 	public List<Item> costs = new ArrayList<Item>();
 	public boolean canCraft = false;
 	public Item resultTemplate;

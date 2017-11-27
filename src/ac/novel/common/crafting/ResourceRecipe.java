@@ -1,13 +1,10 @@
 package ac.novel.common.crafting;
 
-import java.io.Serializable;
-
 import ac.novel.common.entity.Player;
 import ac.novel.common.item.ResourceItem;
 import ac.novel.common.item.resource.Resource;
 
 public class ResourceRecipe extends Recipe {
-    private static final long serialVersionUID = 42L;
 	private Resource resource;
 
 	public ResourceRecipe(Resource resource) {

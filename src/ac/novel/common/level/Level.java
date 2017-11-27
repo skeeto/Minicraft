@@ -5,14 +5,9 @@ import ac.novel.common.gfx.Screen;
 import ac.novel.common.level.levelgen.LevelGen;
 import ac.novel.common.level.tile.Tile;
 
-import java.io.Serializable;
 import java.util.*;
 
-public class Level implements Serializable {
-    private static final long serialVersionUID = 123L;
-	/**
-	 * 
-	 */
+public class Level {
 	private Random random = new Random();
 
 	public int w, h;
@@ -24,16 +19,17 @@ public class Level implements Serializable {
 	public int grassColor = 141;
 	public int dirtColor = 322;
 	public int sandColor = 550;
-	public int depth;
+	private int depth;
 	public int monsterDensity = 8;
 
 	public List<Entity> entities = new ArrayList<Entity>();
-	private static Comparator<Entity> spriteSorter = new Comparator<Entity>() {
+	private Comparator<Entity> spriteSorter = new Comparator<Entity>() {
 		public int compare(Entity e0, Entity e1) {
 			if (e1.y < e0.y) return +1;
 			if (e1.y > e0.y) return -1;
 			return 0;
 		}
+
 	};
 
 	@SuppressWarnings("unchecked")
@@ -300,9 +296,5 @@ public class Level implements Serializable {
 			}
 		}
 		return result;
-	}
-	
-	public List<Entity> getEntities() {
-		return entities;
 	}
 }

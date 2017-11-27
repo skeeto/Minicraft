@@ -3,11 +3,9 @@ package ac.novel.common.entity;
 import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Screen;
 
-import java.io.Serializable;
 import java.util.List;
 
 public class Spark extends Entity {
-    private static final long serialVersionUID = 42L;
 	private int lifeTime;
 	public double xa, ya;
 	public double xx, yy;
@@ -25,10 +23,6 @@ public class Spark extends Entity {
 		this.ya = ya;
 
 		lifeTime = 60 * 10 + random.nextInt(30);
-	}
-	
-	public String getData() {
-		return owner+"";
 	}
 
 	public void tick() {

@@ -1,9 +1,6 @@
 package ac.novel.common.gfx;
 
-import java.io.Serializable;
-
-public class Screen implements Serializable {
-    private static final long serialVersionUID = 123L;
+public class Screen {
 	/*
 	 * public static final int MAP_WIDTH = 64; // Must be 2^x public static final int MAP_WIDTH_MASK = MAP_WIDTH - 1;
 	 * 
@@ -15,8 +12,7 @@ public class Screen implements Serializable {
 	public static final int BIT_MIRROR_X = 0x01;
 	public static final int BIT_MIRROR_Y = 0x02;
 
-	public int w = 0; // TODO: don't initialise here
-	public int h = 0;
+	public final int w, h;
 	public int[] pixels;
 
 	private SpriteSheet sheet;

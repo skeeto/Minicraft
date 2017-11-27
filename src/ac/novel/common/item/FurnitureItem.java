@@ -1,7 +1,5 @@
 package ac.novel.common.item;
 
-import java.io.Serializable;
-
 import ac.novel.common.entity.Furniture;
 import ac.novel.common.entity.ItemEntity;
 import ac.novel.common.entity.Player;
@@ -12,7 +10,6 @@ import ac.novel.common.level.Level;
 import ac.novel.common.level.tile.Tile;
 
 public class FurnitureItem extends Item {
-    private static final long serialVersionUID = 42L;
 	public Furniture furniture;
 	public boolean placed = false;
 

@@ -1,7 +1,5 @@
 package ac.novel.common.item;
 
-import java.io.Serializable;
-
 import ac.novel.common.entity.Entity;
 import ac.novel.common.entity.ItemEntity;
 import ac.novel.common.entity.Player;
@@ -10,8 +8,7 @@ import ac.novel.common.level.Level;
 import ac.novel.common.level.tile.Tile;
 import ac.novel.common.screen.ListItem;
 
-public class Item implements ListItem, Serializable {
-    private static final long serialVersionUID = 123L;
+public class Item implements ListItem {
 	public int getColor() {
 		return 0;
 	}

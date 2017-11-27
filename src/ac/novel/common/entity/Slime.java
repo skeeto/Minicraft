@@ -1,14 +1,11 @@
 package ac.novel.common.entity;
 
-import java.io.Serializable;
-
 import ac.novel.common.gfx.Color;
 import ac.novel.common.gfx.Screen;
 import ac.novel.common.item.ResourceItem;
 import ac.novel.common.item.resource.Resource;
 
 public class Slime extends Mob {
-    private static final long serialVersionUID = 42L;
 	private int xa, ya;
 	private int jumpTime = 0;
 	private int lvl;

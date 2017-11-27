@@ -1,10 +1,6 @@
 package ac.novel.common.gfx;
 
-import java.io.Serializable;
-
-public class Font implements Serializable {
-    private static final long serialVersionUID = 123L;
-	
+public class Font {
 	private static String chars = "" + //
 			"ABCDEFGHIJKLMNOPQRSTUVWXYZ      " + //
 			"0123456789.,!?'\"-+=/\\%()<>:;     " + //
@@ -47,36 +43,4 @@ public class Font implements Serializable {
 		draw(title, screen, x0 * 8 + 8, y0 * 8, Color.get(5, 5, 5, 550));
 
 	}
-	
-	public static void drawCentered(String msg, Screen screen, int y, int color) {
-//		new FontStyle(color).setYPos(y).draw(msg, screen);
-	}
-	
-	public static int centerX(String msg, int minX, int maxX) {
-		return (maxX + minX) / 2 - textWidth(msg) / 2;
-	}
-	
-	public static int centerY(String msg, int minY, int maxY) {
-		return (maxY + minY) / 2 - textHeight() / 2;
-	}
-	
-	public static int textWidth(String text) {
-		return text.length() * 8;
-	}
-	public static int textWidth(String[] para) {
-		// this returns the maximum length of all the lines.
-		if(para == null || para.length == 0) return 0;
-		
-		int max = textWidth(para[0]);
-		
-		for(int i = 1; i < para.length; i++)
-			max = Math.max(max, textWidth(para[i]));
-		
-		return max;
-	}
-	
-	public static int textHeight() {
-		return 8;
-	} // TODO: remove hard coded height
-	
 }
