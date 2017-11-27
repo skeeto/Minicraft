@@ -3,6 +3,7 @@ package ac.novel.common;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class InputHandler implements KeyListener, InputHandlerInterface {
@@ -11,6 +12,7 @@ public class InputHandler implements KeyListener, InputHandlerInterface {
 		public boolean down, clicked;
 
 		public Key() {
+			clients = 0;
 			keys.add(this);
 		}
 
@@ -51,6 +53,19 @@ public class InputHandler implements KeyListener, InputHandlerInterface {
 	public Key right = new Key();
 	public Key attack = new Key();
 	public Key menu = new Key();
+
+	public HashMap<Integer, Integer> getPressesByKey() {
+		HashMap<Integer, Integer> result = new HashMap<Integer,Integer>();
+		System.out.println("Get Presses requested from client on server");
+		result.put(KeyEvent.VK_UP, up.clients);
+		result.put(KeyEvent.VK_DOWN, down.clients);
+		result.put(KeyEvent.VK_LEFT, left.clients);
+		result.put(KeyEvent.VK_RIGHT, right.clients);
+		result.put(KeyEvent.VK_C, attack.clients);
+		result.put(KeyEvent.VK_X, menu.clients);
+		System.out.println(result.toString());
+		return result;
+	}
 
 	public void releaseAll() {
 		for (int i = 0; i < keys.size(); i++) {
