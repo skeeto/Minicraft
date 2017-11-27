@@ -14,7 +14,9 @@ public class DeadMenu extends Menu {
 		if (inputDelay > 0)
 			inputDelay--;
 		else if (input.attack.clicked || input.menu.clicked) {
-			game.setMenu(new TitleMenu());
+//			game.setMenu(new TitleMenu());
+			game.setMenu(null);
+			game.resetGame();
 		}
 	}
 

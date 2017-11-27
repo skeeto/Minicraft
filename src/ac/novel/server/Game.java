@@ -2,10 +2,14 @@ package ac.novel.server;
 
 import ac.novel.common.InputHandler;
 import ac.novel.common.InputHandlerInterface;
+import ac.novel.common.gfx.Screen;
+import ac.novel.common.gfx.SpriteSheet;
 import ac.novel.common.screen.*;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
@@ -48,8 +52,9 @@ public class Game extends ac.novel.common.Game {
     }
 
     @Override
-    public void setMenu(ac.novel.common.screen.Menu menu) {
-        this.menu = menu;
-//        if (menu != null) menu.init(this, input);
+    public void init() {
+        super.init();
+        setMenu(null);
     }
+
 }

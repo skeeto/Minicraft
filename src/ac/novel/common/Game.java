@@ -90,7 +90,7 @@ public abstract class Game extends Canvas implements Runnable {
 		}
 	}
 
-	private void init() {
+	public void init() {
 		int pp = 0;
 		for (int r = 0; r < 6; r++) {
 			for (int g = 0; g < 6; g++) {
