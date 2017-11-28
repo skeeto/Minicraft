@@ -47,14 +47,14 @@ public class TitleMenu extends Menu {
 				screen.render(xo + x * 8, yo + y * 8, (x + 13) + (y + 16) * 32, titleColor, 0);
 			}
 		}
-//		System.out.println(String.format("Updating the title menu with obj: %s", input.up.toString()));
-		Font.draw(Integer.toString(input.up.clients), screen, 47, 53, Color.get(-1, 000, 000, 500));
-		Font.draw(Integer.toString(input.down.clients), screen, 47, 76, Color.get(-1, 000, 000, 500));
-		Font.draw(Integer.toString(input.left.clients), screen, 34, 64, Color.get(-1, 000, 000, 500));
-		Font.draw(Integer.toString(input.right.clients), screen, 59, 64, Color.get(-1, 000, 000, 500));
-		Font.draw(Integer.toString(input.menu.clients), screen, 94, 76, Color.get(-1, 000, 000, 555));
-		Font.draw(Integer.toString(input.attack.clients), screen, 118, 76, Color.get(-1, 000, 000, 555));
-
-		Font.draw("(Arrow keys,X and C)", screen, 0, screen.h - 8, Color.get(0, 555, 555, 555));
+		
+		Font.draw(Integer.toString(input.getUpClients()), screen, 47, 53, Color.get(-1, 000, 000, 500));
+		Font.draw(Integer.toString(input.getDownClients()), screen, 47, 76, Color.get(-1, 000, 000, 500));
+		Font.draw(Integer.toString(input.getLeftClients()), screen, 34, 64, Color.get(-1, 000, 000, 500));
+		Font.draw(Integer.toString(input.getRightClients()), screen, 59, 64, Color.get(-1, 000, 000, 500));
+		Font.draw(Integer.toString(input.getMenuClients()), screen, 94, 76, Color.get(-1, 000, 000, 555));
+		Font.draw(Integer.toString(input.getAttackClients()), screen, 118, 76, Color.get(-1, 000, 000, 555));
+		
+		Font.draw("(Arrow keys,X and C)", screen, 0, screen.h - 8, Color.get(-1, 000, 000, 400));
 	}
 }

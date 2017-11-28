@@ -271,7 +271,7 @@ public class Player extends Mob {
 				attackItem.renderIcon(screen, xo + 4, yo - 4);
 			}
 		}
-		int col = Color.get(-1, 100, 220, 532);
+		int col = Color.get(-1, 100, 500, 532);
 		if (hurtTime > 0) {
 			col = Color.get(-1, 555, 555, 555);
 		}

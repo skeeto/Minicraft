@@ -24,7 +24,6 @@ public class InputHandlerClient extends InputHandler {
 		public void toggle(boolean pressed) {
             if (!down && pressed) {
                 try {
-                	updateClients();
                     remoteInputHandler.keyPressed(keycode);
                 } catch (RemoteException e) {
                     System.out.println("Failure on keyPressed");
@@ -66,42 +65,67 @@ public class InputHandlerClient extends InputHandler {
 
 	public List<Key> keys = new ArrayList<Key>();
 
-	public Key up = new Key(KeyEvent.VK_W);
-	public Key localDown = new Key(KeyEvent.VK_S);
-	public Key localLeft = new Key(KeyEvent.VK_A);
-	public Key localRight = new Key(KeyEvent.VK_D);
-	public Key localAttack = new Key(KeyEvent.VK_SPACE);
-	public Key localMenu = new Key(KeyEvent.VK_ENTER);
+	public Key up = new Key(KeyEvent.VK_UP);
+	public Key down = new Key(KeyEvent.VK_DOWN);
+	public Key left = new Key(KeyEvent.VK_LEFT);
+	public Key right = new Key(KeyEvent.VK_RIGHT);
+	public Key attack = new Key(KeyEvent.VK_C);
+	public Key menu = new Key(KeyEvent.VK_X);
+	
+	@Override
+	public int getUpClients() {
+		return up.clients;
+	}
+	
+	@Override
+	public int getDownClients() {
+		return down.clients;
+	}
+	
+	@Override
+	public int getLeftClients() {
+		return left.clients;
+	}
+	
+	@Override
+	public int getRightClients() {
+		return right.clients;
+	}
+	
+	@Override
+	public int getAttackClients() {
+		return attack.clients;
+	}
+	
+	@Override
+	public int getMenuClients() {
+		return menu.clients;
+	}
 
+	@Override
 	public void updateClients(){
 		HashMap<Integer, Integer> pressedByKey;
 		try {
 			pressedByKey = remoteInputHandler.getPressesByKey();
-			System.out.println("Received presses info from server");
-			System.out.println(pressedByKey.toString());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return;
 		}
-		for (Integer keyCode:
-			 pressedByKey.keySet()) {
+		for (Integer keyCode : pressedByKey.keySet()) {
 			Key currentKey = this.getKey(keyCode);
 			if (currentKey != null) {
-				System.out.println(String.format("Updating client list for key with client num %s", currentKey.toString()));
-				System.out.println(pressedByKey.get(keyCode));
 				currentKey.clients = pressedByKey.get(keyCode);
-				System.out.println(String.format("Updated client list with num %s", currentKey.clients));
 			}
 		}
 	}
 
 	private Key getKey(int keyCode) {
 		if (keyCode == KeyEvent.VK_UP) return up;
-		if (keyCode == KeyEvent.VK_DOWN) return localDown;
-		if (keyCode == KeyEvent.VK_LEFT) return localLeft;
-		if (keyCode == KeyEvent.VK_RIGHT) return localRight;
-		if (keyCode == KeyEvent.VK_X) return localMenu;
-		if (keyCode == KeyEvent.VK_C) return localAttack;
+		if (keyCode == KeyEvent.VK_DOWN) return down;
+		if (keyCode == KeyEvent.VK_LEFT) return left;
+		if (keyCode == KeyEvent.VK_RIGHT) return right;
+		if (keyCode == KeyEvent.VK_X) return menu;
+		if (keyCode == KeyEvent.VK_C) return attack;
 		return null;
 	}
 
@@ -129,27 +153,27 @@ public class InputHandlerClient extends InputHandler {
 
     private void toggle(int keyCode, boolean pressed) {
 		if (keyCode == KeyEvent.VK_NUMPAD8) up.toggle(pressed);
-		if (keyCode == KeyEvent.VK_NUMPAD2) localDown.toggle(pressed);
-		if (keyCode == KeyEvent.VK_NUMPAD4) localLeft.toggle(pressed);
-		if (keyCode == KeyEvent.VK_NUMPAD6) localRight.toggle(pressed);
+		if (keyCode == KeyEvent.VK_NUMPAD2) down.toggle(pressed);
+		if (keyCode == KeyEvent.VK_NUMPAD4) left.toggle(pressed);
+		if (keyCode == KeyEvent.VK_NUMPAD6) right.toggle(pressed);
 		if (keyCode == KeyEvent.VK_W) up.toggle(pressed);
-		if (keyCode == KeyEvent.VK_S) localDown.toggle(pressed);
-		if (keyCode == KeyEvent.VK_A) localLeft.toggle(pressed);
-		if (keyCode == KeyEvent.VK_D) localRight.toggle(pressed);
+		if (keyCode == KeyEvent.VK_S) down.toggle(pressed);
+		if (keyCode == KeyEvent.VK_A) left.toggle(pressed);
+		if (keyCode == KeyEvent.VK_D) right.toggle(pressed);
 		if (keyCode == KeyEvent.VK_UP) up.toggle(pressed);
-		if (keyCode == KeyEvent.VK_DOWN) localDown.toggle(pressed);
-		if (keyCode == KeyEvent.VK_LEFT) localLeft.toggle(pressed);
-		if (keyCode == KeyEvent.VK_RIGHT) localRight.toggle(pressed);
-		if (keyCode == KeyEvent.VK_TAB) localMenu.toggle(pressed);
-		if (keyCode == KeyEvent.VK_ALT) localMenu.toggle(pressed);
-		if (keyCode == KeyEvent.VK_ALT_GRAPH) localMenu.toggle(pressed);
-		if (keyCode == KeyEvent.VK_SPACE) localAttack.toggle(pressed);
-		if (keyCode == KeyEvent.VK_CONTROL) localAttack.toggle(pressed);
-		if (keyCode == KeyEvent.VK_NUMPAD0) localAttack.toggle(pressed);
-		if (keyCode == KeyEvent.VK_INSERT) localAttack.toggle(pressed);
-		if (keyCode == KeyEvent.VK_ENTER) localMenu.toggle(pressed);
-		if (keyCode == KeyEvent.VK_X) localMenu.toggle(pressed);
-		if (keyCode == KeyEvent.VK_C) localAttack.toggle(pressed);
+		if (keyCode == KeyEvent.VK_DOWN) down.toggle(pressed);
+		if (keyCode == KeyEvent.VK_LEFT) left.toggle(pressed);
+		if (keyCode == KeyEvent.VK_RIGHT) right.toggle(pressed);
+		if (keyCode == KeyEvent.VK_TAB) menu.toggle(pressed);
+		if (keyCode == KeyEvent.VK_ALT) menu.toggle(pressed);
+		if (keyCode == KeyEvent.VK_ALT_GRAPH) menu.toggle(pressed);
+		if (keyCode == KeyEvent.VK_SPACE) attack.toggle(pressed);
+		if (keyCode == KeyEvent.VK_CONTROL) attack.toggle(pressed);
+		if (keyCode == KeyEvent.VK_NUMPAD0) attack.toggle(pressed);
+		if (keyCode == KeyEvent.VK_INSERT) attack.toggle(pressed);
+		if (keyCode == KeyEvent.VK_ENTER) menu.toggle(pressed);
+		if (keyCode == KeyEvent.VK_X) menu.toggle(pressed);
+		if (keyCode == KeyEvent.VK_C) attack.toggle(pressed);
     }
 
 	@Override

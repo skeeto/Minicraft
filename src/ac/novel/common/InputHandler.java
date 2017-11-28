@@ -56,14 +56,12 @@ public class InputHandler implements KeyListener, InputHandlerInterface {
 
 	public HashMap<Integer, Integer> getPressesByKey() {
 		HashMap<Integer, Integer> result = new HashMap<Integer,Integer>();
-		System.out.println("Get Presses requested from client on server");
 		result.put(KeyEvent.VK_UP, up.clients);
 		result.put(KeyEvent.VK_DOWN, down.clients);
 		result.put(KeyEvent.VK_LEFT, left.clients);
 		result.put(KeyEvent.VK_RIGHT, right.clients);
 		result.put(KeyEvent.VK_C, attack.clients);
 		result.put(KeyEvent.VK_X, menu.clients);
-		System.out.println(result.toString());
 		return result;
 	}
 
@@ -144,4 +142,33 @@ public class InputHandler implements KeyListener, InputHandlerInterface {
 	public void keyPressed(KeyEvent e) {
 		toggle(e.getKeyCode(), true);
 	}
+
+	public int getUpClients() {
+		return up.clients;
+	}
+	
+	public int getDownClients() {
+		return down.clients;
+	}
+	
+	public int getLeftClients() {
+		return left.clients;
+	}
+	
+	public int getRightClients() {
+		return right.clients;
+	}
+	public int getAttackClients() {
+		return attack.clients;
+	}
+	
+	public int getMenuClients() {
+		return menu.clients;
+	}
+
+	public void updateClients() {
+		
+	}
+	
+	
 }

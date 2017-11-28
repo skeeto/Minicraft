@@ -56,6 +56,7 @@ public class Game extends ac.novel.common.Game {
         if (!hasFocus()) {
             input.releaseAll();
         }
+        input.updateClients();
         super.tick();
     }
 }
