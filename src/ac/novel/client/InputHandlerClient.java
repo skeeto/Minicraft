@@ -36,7 +36,7 @@ public class InputHandlerClient extends InputHandler {
                     System.out.println("Failure on keyDown");
                     e.printStackTrace();
                 }
-            } else {
+            } else if (down && !pressed) {
                 try {
                     remoteInputHandler.keyReleased(keycode);
                 } catch (RemoteException e) {
